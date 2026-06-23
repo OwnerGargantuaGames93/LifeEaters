@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b37d00bfed445b7ae9603cf660bc79c, type: 3}
+  m_Name: SceneMountConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Infra.SceneHandler.SceneMountConfig
+  sceneMap:
+  - scene: TestRoom
+    requiredScenes:
+    - TestRoom
+  - scene: -1.0_roahr_sect_western_outpost
+    requiredScenes:
+    - -1.0_roahr_sect_western_outpost
+    - -1.1_sewers
+  - scene: -1.1_sewers
+    requiredScenes:
+    - -1.0_roahr_sect_western_outpost
+    - -1.1_sewers
+  - scene: 1.3_clay_crusher
+    requiredScenes:
+    - 1.1_parent_house__clay_crusher
+    - 1.3_clay_crusher
+    - -1.0_roahr_sect_western_outpost
+  - scene: 1.1_parent_house
+    requiredScenes:
+    - 1.1_parent_house
+    - 1.1_parent_house__clay_crusher
+    - TestRoom
+  - scene: 1.1_parent_house__clay_crusher
+    requiredScenes:
+    - 1.1_parent_house
+    - 1.1_parent_house__clay_crusher
+  - scene: 1.3_clay_crusher
+    requiredScenes:
+    - 1.1_parent_house__clay_crusher
+    - 1.3_clay_crusher
+    - -1.0_roahr_sect_western_outpost

@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d4b700decd44e6fbbf8a68cce16588c, type: 3}
+  m_Name: ConsumableDatabase
+  m_EditorClassIdentifier: 
+  Items:
+  - Name: Heartleaf
+    Description: A thin, fragrant leaf that grows on young branches. Chewing it releases
+      a mild healing essence.
+    ShortDescription: A thin, fragrant leaf that grows on young branches.
+    GamePlayDescription: Restore 1 HP
+    SmallIcon: {fileID: 21300000, guid: 2aaae095691394bc0bd15635cc64f5f6, type: 3}
+    Icon: {fileID: 21300000, guid: 2aaae095691394bc0bd15635cc64f5f6, type: 3}
+    ShopDescriptions: []
+    Id: 0
+    Effects:
+    - ValueType: 0
+      Value: 1
+      Duration: 0
+      Type: 0
+      UntilDeath: 0
+      Probability: 1
+  - Name: Small Violet Clump
+    Description: "A dark, warm, and soft mass to the touch. The world\u2019s current
+      condition causes these clusters to form, something that could never occur under
+      normal circumstances."
+    ShortDescription: A dark, warm, and soft mass to the touch.
+    GamePlayDescription: You gain 100 points.
+    SmallIcon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    Icon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    ShopDescriptions: []
+    Id: 1
+    Effects:
+    - ValueType: 0
+      Value: 100
+      Duration: 0
+      Type: 1
+      UntilDeath: 0
+      Probability: 1
+  - Name: Violet Clump
+    Description: A dark clump, about the size of an apple. The heat it gives off
+      never fades, as if a small, unending star were burning at its core.
+    ShortDescription: A dark clump, about the size of an apple.
+    GamePlayDescription: You gain 200 points.
+    SmallIcon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    Icon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    ShopDescriptions: []
+    Id: 2
+    Effects:
+    - ValueType: 0
+      Value: 500
+      Duration: 0
+      Type: 1
+      UntilDeath: 0
+      Probability: 1
+  - Name: Big Violet Clump
+    Description: "A large, dark, warm mass, streaked with faint violet hues. When
+      the planet\u2019s power is disturbed by external forces, primordial energy
+      falls into chaos and gives rise to unnatural phenomena. This is one such manifestation."
+    ShortDescription: A large, dark, warm mass, streaked with faint violet hues.
+    GamePlayDescription: You gain 500 points.
+    SmallIcon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    Icon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    ShopDescriptions: []
+    Id: 3
+    Effects:
+    - ValueType: 0
+      Value: 1000
+      Duration: 0
+      Type: 1
+      UntilDeath: 0
+      Probability: 1
+  - Name: Giant Violet Clump
+    Description: A massive clump of dark matter, guardian of the mysteries surrounding
+      the birth of the universe. Within it lies primordial energy, the original building
+      block of the cosmos, holding every fragment of knowledge. Its destruction would
+      mean the end of everything.
+    ShortDescription: A massive clump of dark matter.
+    GamePlayDescription: You gain 1000 points.
+    SmallIcon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    Icon: {fileID: 21300000, guid: 64447ebdddcff433ba23caf2cd95cff5, type: 3}
+    ShopDescriptions: []
+    Id: 4
+    Effects:
+    - ValueType: 0
+      Value: 1000
+      Duration: 0
+      Type: 1
+      UntilDeath: 0
+      Probability: 1
+  - Name: Popju balm
+    Description: A fragrant substance that emits a faint ochre-yellow glow. It is
+      released by the Popju Bear during hibernation and was once gathered as a precious
+      balm. Members of the Support Group applied it to their skin to increase their
+      resilience during surface hunts.
+    ShortDescription: A fragrant substance that emits a faint ochre-yellow glow.
+    GamePlayDescription: Gain +1 DIF until death.
+    SmallIcon: {fileID: 21300000, guid: 55cd5950a0ca0491fb08b691edfa4cb1, type: 3}
+    Icon: {fileID: 21300000, guid: 55cd5950a0ca0491fb08b691edfa4cb1, type: 3}
+    ShopDescriptions: []
+    Id: 5
+    Effects:
+    - ValueType: 0
+      Value: 1
+      Duration: 0
+      Type: 17
+      UntilDeath: 1
+      Probability: 1
+  - Name: Battery
+    Description: A pill made of potent chemical compounds that keeps the mind sharp
+      even after long hours of exhausting work. It should be considered a drug, but
+      those in power made it legal to push clay miners beyond their limits.
+    ShortDescription: A pill made of potent chemical compounds that keeps the mind
+      sharp.
+    GamePlayDescription: Gain +3 FOC
+    SmallIcon: {fileID: 21300000, guid: 9d9c90374e03e4e20aa68ed5ba3ffbcc, type: 3}
+    Icon: {fileID: 21300000, guid: 9d9c90374e03e4e20aa68ed5ba3ffbcc, type: 3}
+    ShopDescriptions: []
+    Id: 6
+    Effects:
+    - ValueType: 0
+      Value: 3
+      Duration: 0
+      Type: 18
+      UntilDeath: 0
+      Probability: 1
+  - Name: Friend's Postcard
+    Description: "A hand-drawn postcard depicting a large smiling 'moon' surrounded
+      by slender tentacles. Though the image evokes fear and unease, it conveys an
+      unexpected sense of calm, warmth, and sincerity \u2014 everything a true friend
+      should offer."
+    ShortDescription: A hand-drawn postcard depicting a large smiling 'moon' surrounded
+      by slender tentacles.
+    GamePlayDescription: Teleport to the last rest statute, without loosing life.
+    SmallIcon: {fileID: 21300000, guid: 6d2f208e4a8904c57b3b167fcd9538ef, type: 3}
+    Icon: {fileID: 21300000, guid: 6d2f208e4a8904c57b3b167fcd9538ef, type: 3}
+    ShopDescriptions:
+    - ShopName: Strange Photo
+      Description: A hand-drawn postcard depicting a large smiling moon surrounded
+        by slender tentacles.
+    Id: 7
+    Effects:
+    - ValueType: 0
+      Value: 0
+      Duration: 0
+      Type: 19
+      UntilDeath: 0
+      Probability: 1
+  - Name: Canned Food
+    Description: "A dish made from a highly questionable mix of extremely high-calorie
+      ingredients, all proudly compressed into a single container. It lasts for years\u2026
+      but it\u2019s best consumed in moderation and preferably with a bathroom nearby."
+    ShortDescription: A dish made from a highly questionable mix of extremely high-calorie
+      ingredients.
+    GamePlayDescription: Gain 2 HP.
+    SmallIcon: {fileID: 21300000, guid: 7f052cd207cdf4316825a5aeb1fb99f6, type: 3}
+    Icon: {fileID: 21300000, guid: 7f052cd207cdf4316825a5aeb1fb99f6, type: 3}
+    ShopDescriptions: []
+    Id: 8
+    Effects:
+    - ValueType: 0
+      Value: 2
+      Duration: 0
+      Type: 0
+      UntilDeath: 0
+      Probability: 1
+  - Name: PSI Wave Generator
+    Description: A mechanism capable of producing the elusive psi waves. According
+      to the theory, they represent the energy that matter accumulates over time.
+      Manifesting them can cause a slight distortion of reality, even if only for
+      a brief moment.
+    ShortDescription: A mechanism capable of producing the elusive psi waves.
+    GamePlayDescription: Cause a slight distortion of reality
+    SmallIcon: {fileID: 21300000, guid: a1e7dadff5c9a47c89a4c9d27e28be66, type: 3}
+    Icon: {fileID: 21300000, guid: a1e7dadff5c9a47c89a4c9d27e28be66, type: 3}
+    ShopDescriptions: []
+    Id: 9
+    Effects:
+    - ValueType: 0
+      Value: 0
+      Duration: 5
+      Type: 20
+      UntilDeath: 0
+      Probability: 1
+  - Name: Magic Formula
+    Description: A small electronic device with a slip of paper covered in incomprehensible
+      codes attached to its side. Many variants exist, both of the device and of
+      the notes themselves; when activated, it emits a series of strange sounds.
+      The Chief has never received any clear signal, but some of his disciples claim
+      they dreamed of immense dragons on the night it was used.
+    ShortDescription: A small electronic device with a slip of paper covered in incomprehensible
+      codes attached to its side.
+    GamePlayDescription: Save Game
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 10
+    Effects:
+    - ValueType: 0
+      Value: 0
+      Duration: 5
+      Type: 21
+      UntilDeath: 0
+      Probability: 1
+  - Name: Welcome Cocktail
+    Description: "A dense brownish liquid that gives off a sharp, nauseating stench.
+      Conceived by the members of the sect as an offering to welcome the invasion.
+      Togheter with their devotion to the Dragons, they hope for the preservation
+      of their Lives. Though its ingredients are unknown, one can imagine how it
+      was made\u2026"
+    ShortDescription: A dense brownish liquid that gives off a sharp, nauseating
+      stench.
+    GamePlayDescription: Gain 2 HP
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 11
+    Effects:
+    - ValueType: 0
+      Value: 2
+      Duration: 0
+      Type: 0
+      UntilDeath: 0
+      Probability: 1
+  - Name: Crustacean Soup
+    Description: A hearty stew made from the shells and remains of dead crustaceans
+      gathered along the riverbank. As sacred creatures, they may only be eaten after
+      death. Sadly, the polluted waters of these lands claim many of them long before
+      their time.
+    ShortDescription: A hearty stew made from the shells and remains of dead crustaceans
+      gathered along the riverbank.
+    GamePlayDescription: Gain 2 HP
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 12
+    Effects:
+    - ValueType: 0
+      Value: 2
+      Duration: 0
+      Type: 0
+      UntilDeath: 0
+      Probability: 1

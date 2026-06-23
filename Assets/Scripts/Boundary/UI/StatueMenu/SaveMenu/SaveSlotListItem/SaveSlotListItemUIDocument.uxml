@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement name="SaveSlotItemContainer" style="flex-grow: 1; margin-top: 8px; margin-right: 8px; margin-bottom: 8px; margin-left: 8px; height: 80px; flex-direction: row; background-color: rgb(255, 255, 255); padding-top: 4px; padding-right: 4px; padding-bottom: 4px; padding-left: 4px;">
+        <engine:VisualElement name="LeftContainer" style="flex-grow: 1;">
+            <engine:Label text="Slot Number: X" name="SlotNumberLabel" style="-unity-font-style: bold; font-size: 10px; margin-top: 2px; margin-right: 2px;" />
+            <engine:Label text="Time: hh:mm:ss" name="GameTimeLabel" style="-unity-font-style: italic; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 10px;" />
+            <engine:Label text="Last Game: yyyy-mm-dd" name="LastGameLabel" emoji-fallback-support="false" style="-unity-font-style: italic; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 10px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="RightContainer" style="flex-grow: 1; -unity-text-align: upper-right;">
+            <engine:Label text="Level: X" name="LevelLabel" style="-unity-font-style: bold; font-size: 10px; margin-top: 2px; margin-right: 2px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

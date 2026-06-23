@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7330d5c7ab0468bb52ad6f5c6ba6750, type: 3}
+  m_Name: ShopsDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Data.Database.Sources.Shops.ShopDatabase
+  shops:
+  - shopName: traderOnTheRun
+    shopDisplayName: Trader On The Run
+    consumables:
+    - id: 0
+      price: 20
+      quantity: 3
+    - id: 8
+      price: 40
+      quantity: 2
+    - id: 9
+      price: 100
+      quantity: 1
+    keys:
+    - id: 6
+      price: 1000
+      quantity: 1
+    equipments:
+    - id: 5
+      price: 150
+      quantity: 1
+    lifes: []

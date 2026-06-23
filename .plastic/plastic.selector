@@ -1,0 +1,3 @@
+repository "LifeEaters_Player/LifeEaters_Player@1375184619758@cloud"
+  path "/"
+    smartbranch "/main"

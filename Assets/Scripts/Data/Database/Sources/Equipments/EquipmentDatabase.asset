@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978e842bd3ee4f6ab566d6367e8398ca, type: 3}
+  m_Name: EquipmentDatabase
+  m_EditorClassIdentifier: 
+  items:
+  - Name: Pijamas
+    Description: "A beautiful and very soft light pajama with hood. Perfect for long
+      sleeps and afternoons of recovery\u2026 definitely less so for escaping aliens,
+      which is why it offers no defensive properties."
+    ShortDescription: A beautiful and very soft light pajama with hood.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 1
+    type: 0
+    attributesModifier:
+      MaxHealth: 0
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: 0
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 0
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 0
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 
+  - Name: Ring of Flesh
+    Description: "A band made of living tissue, its ends stitched together like a
+      wound that refuses to heal. Just looking at it brings a subtle unease\u2026
+      wearing it even more."
+    ShortDescription: 
+    GamePlayDescription: Test
+    SmallIcon: {fileID: 21300000, guid: 31b172f24b00645939559c4a0f84cce0, type: 3}
+    Icon: {fileID: 21300000, guid: 31b172f24b00645939559c4a0f84cce0, type: 3}
+    ShopDescriptions: []
+    id: 2
+    type: 1
+    attributesModifier:
+      MaxHealth: 1
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: 0
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 0
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 0
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 
+  - Name: Meteor Pendant
+    Description: "A crude pendant holding a genuine, unrefined piece of crater clay.
+      It was given to the miners as a token of good fortune \u2014 not only to extract
+      the usual material, but to one day draw closer to the very secret of the universe."
+    ShortDescription: A crude pendant holding a genuine, unrefined piece of crater
+      clay.
+    GamePlayDescription: Increase Clay Object Damage
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 3
+    type: 1
+    attributesModifier:
+      MaxHealth: 0
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: 0
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 0
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 0
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 
+  - Name: "Mithridate\u2019s Ring"
+    Description: "A ring with a tiny hollow capsule hidden beneath the stone. Becoming
+      accustomed to toxicity is a form of power\u2026 but it is also a slow condemnation."
+    ShortDescription: A ring with a tiny hollow capsule hidden beneath the stone.
+    GamePlayDescription: Increase poison resistance.
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 4
+    type: 1
+    attributesModifier:
+      MaxHealth: 0
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: 0
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 0
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 3
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 
+  - Name: Miner's Suit
+    Description: "An old yet durable outfit, consisting of a full-body suit sealed
+      with a sturdy front zipper. It is designed to protect the body from the cuts
+      of meteoritic minerals, known for their jagged and razor-sharp surfaces. In
+      these lands, Clay is the only true source of wealth \u2014 and extracting it
+      is the most profitable work, though also among the harshest and most exhausting."
+    ShortDescription: An old yet durable outfit, consisting of a full-body suit sealed
+      with a sturdy front zipper.
+    GamePlayDescription: +1 DEF
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 5
+    type: 0
+    attributesModifier:
+      MaxHealth: 0
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: 0
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 1
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 3
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 
+  - Name: Muddy Boots
+    Description: 
+    ShortDescription: 
+    GamePlayDescription: -1 JATT | + 2 POS
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 6
+    type: 1
+    attributesModifier:
+      MaxHealth: 0
+      MaxLifes: 0
+      MaxEnergy: 0
+      JumpAttackBaseDamage: -1
+      ThrowAttackBaseDamage: 0
+      RipAttackBaseDamage: 0
+      Defense: 0
+      DashDuration: 0
+      Recovery: 0
+      BurnResistance: 0
+      PoisonResistance: 0
+      FrostResistance: 0
+      DropRate: 0
+      CritRate: 0
+      PitNumber: 0
+      Oratory: 0
+      AlienOratory: 0
+      Grabbing: 0
+      EssenceSlots: 0
+    characteristicsModifier:
+      Vitality: 0
+      Strength: 0
+      Agility: 0
+      Human: 0
+      God: 0
+      Alien: 0
+    talentsModifier: 

@@ -1,0 +1,22 @@
+# Directories
+Library/**/*
+obj/**/*
+Temp/**/*
+ProjectSettings/**/*
+UserSettings/**/*
+.vs/**/*
+
+# Files
+.vsconfig
+.vscode
+
+# Extensions
+*.log
+*.chache
+*.meta
+*.DS_Store
+
+!Assets/
+
+Assets/*
+!Assets/Scripts/

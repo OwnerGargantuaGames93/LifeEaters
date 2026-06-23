@@ -1,0 +1,5 @@
+0000000000000000000000000000000000000000 82d25c9ccb20bd3820a4ae41db0a8921ceb2eaa8 leolusoli <leonardo.lusoli@gmail.com> 1781043654 +0200	branch: Created from HEAD
+82d25c9ccb20bd3820a4ae41db0a8921ceb2eaa8 dcecfac4698fb1d0f233e50547633cba740511d0 leolusoli <leonardo.lusoli@gmail.com> 1781195790 +0200	commit: add ranged attack patterns and projectile system aka combat system v2
+dcecfac4698fb1d0f233e50547633cba740511d0 f135ccccc174067f20f3eafad3f33812bcd231ba leolusoli <leonardo.lusoli@gmail.com> 1781362669 +0200	commit: fix physical bullet
+f135ccccc174067f20f3eafad3f33812bcd231ba 6e7343fd2688fb1fbd0f0d8e3f536e47e43b0417 leolusoli <leonardo.lusoli@gmail.com> 1781370008 +0200	commit: remove melee attack enemy behaviours from code
+6e7343fd2688fb1fbd0f0d8e3f536e47e43b0417 584dbf5eba12483bbf68b0303a21d0a4d8fb5432 leolusoli <leonardo.lusoli@gmail.com> 1781385132 +0200	commit: add drop shot attack pattern - fix blue cult leader - various minor fixes

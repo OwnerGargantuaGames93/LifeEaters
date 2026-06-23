@@ -1,0 +1,174 @@
+0000000000000000000000000000000000000000 a4b17046bcfe7ead319f0392ebd4dcbadb73ec0a leolusoli <leonardo.lusoli@gmail.com> 1728509013 +0200	commit (initial): Initial commit
+a4b17046bcfe7ead319f0392ebd4dcbadb73ec0a 479a927ee279019c61714a1cc1567d88c48bc84c leolusoli <leonardo.lusoli@gmail.com> 1728655022 +0200	commit: Reorganize files + Clean up is falling check
+479a927ee279019c61714a1cc1567d88c48bc84c d16cd6a0be9c695b56b924a58ea27ce2710fcd03 leolusoli <leonardo.lusoli@gmail.com> 1728656165 +0200	commit: Refactor some player controller code
+d16cd6a0be9c695b56b924a58ea27ce2710fcd03 e584d4515433df5fe4f6335979568633efffd26d leolusoli <leonardo.lusoli@gmail.com> 1728903356 +0200	commit: Add Grounded Enemy specialization
+e584d4515433df5fe4f6335979568633efffd26d ab19f258bb9e700f675232bf80d700a5f1201506 leolusoli <leonardo.lusoli@gmail.com> 1733485105 +0100	commit: Add constants - Improve agro enemy - Add minimal respawn system
+ab19f258bb9e700f675232bf80d700a5f1201506 6f75ea9947ae14555baaf5a9b432cbeaea3aa049 leolusoli <leonardo.lusoli@gmail.com> 1733771152 +0100	commit: Improve respawn system
+6f75ea9947ae14555baaf5a9b432cbeaea3aa049 0b302e3b1d39be25dea5a14cec19f674a86cfbfa leolusoli <leonardo.lusoli@gmail.com> 1733789393 +0100	commit: Coin and bonuses
+0b302e3b1d39be25dea5a14cec19f674a86cfbfa 4277b2902f5a161b146ddc3f192e7a61a311a1ed leolusoli <leonardo.lusoli@gmail.com> 1734045123 +0100	pull: Fast-forward
+4277b2902f5a161b146ddc3f192e7a61a311a1ed d0d05ac5e13bbad51ba09cce85096830ddff8b85 leolusoli <leonardo.lusoli@gmail.com> 1734535225 +0100	commit: Various fixes
+d0d05ac5e13bbad51ba09cce85096830ddff8b85 f9aae2c9c6da77a8013340f701a5f4f7a2c90606 leolusoli <leonardo.lusoli@gmail.com> 1734535271 +0100	commit: Migrate to Unity 6
+f9aae2c9c6da77a8013340f701a5f4f7a2c90606 0af3e6fa23ef5658dd06cd5c7b445cbcf7ed1d05 leolusoli <leonardo.lusoli@gmail.com> 1734626562 +0100	commit: Various fixes and enforce previous commit
+0af3e6fa23ef5658dd06cd5c7b445cbcf7ed1d05 b0b13654d7153f150ae8886e408f4e1c97c0adc0 leolusoli <leonardo.lusoli@gmail.com> 1741109396 +0100	commit: Add Develop Phases
+b0b13654d7153f150ae8886e408f4e1c97c0adc0 80a84dd4b2c5217b0fbac22dcc25ac7fdb788499 leolusoli <leonardo.lusoli@gmail.com> 1741283724 +0100	commit: Update doc
+80a84dd4b2c5217b0fbac22dcc25ac7fdb788499 7b64d3af3889a6c9bdbb5ba418869d7556532a7d leolusoli <leonardo.lusoli@gmail.com> 1741304161 +0100	commit: Correct Trama Principale - Move Quest, Personaggi and Boss in README.md
+7b64d3af3889a6c9bdbb5ba418869d7556532a7d 18b6e323bab872f95b7dad014e08d956d56a3865 leolusoli <leonardo.lusoli@gmail.com> 1741446767 +0100	commit: Add basic UI - refresh it using C# events
+18b6e323bab872f95b7dad014e08d956d56a3865 46b42a9533f64965fb51ea30d9e4f4cbfe8a64b1 leolusoli <leonardo.lusoli@gmail.com> 1741623510 +0100	commit: Basic player status with UI Toolkit - Multiple virtual cameras automatic aim - Inventory system planning
+46b42a9533f64965fb51ea30d9e4f4cbfe8a64b1 62c38d7f5b4d253f92809e1a5d2eecb6862da5d1 leolusoli <leonardo.lusoli@gmail.com> 1741623553 +0100	commit: Player status UI fixed
+62c38d7f5b4d253f92809e1a5d2eecb6862da5d1 14ca7cbacf16d9937b5ce8d5bbeeb34ce914395d leolusoli <leonardo.lusoli@gmail.com> 1741644708 +0100	commit: Init UI element references
+14ca7cbacf16d9937b5ce8d5bbeeb34ce914395d d8035029f68a052b2983c88c0bb2b07d4344ca3c leolusoli <leonardo.lusoli@gmail.com> 1741645714 +0100	commit: Refactor grabbed object script
+d8035029f68a052b2983c88c0bb2b07d4344ca3c 120ea966f0e0217889f52361ecb41290eec42d93 leolusoli <leonardo.lusoli@gmail.com> 1741823906 +0100	commit: Organize files in MVC architecture
+120ea966f0e0217889f52361ecb41290eec42d93 d3de3f3bd8920580ddec3b011ab9042a7450c3e1 leolusoli <leonardo.lusoli@gmail.com> 1741823930 +0100	commit: Enforce previous commit
+d3de3f3bd8920580ddec3b011ab9042a7450c3e1 1289d0f10fb7b42a05566729a5e644f7af4e850b leolusoli <leonardo.lusoli@gmail.com> 1741825454 +0100	commit: Refactor bonus collectibles and coins
+1289d0f10fb7b42a05566729a5e644f7af4e850b 652c614d003139fcaf1fc8513d415beb01b79c8d leolusoli <leonardo.lusoli@gmail.com> 1742400834 +0100	commit: First version of working datasource layer (object grabbed from pit) using prefab
+652c614d003139fcaf1fc8513d415beb01b79c8d 14c13c8727354dbbc723cc87be5dfecae8840a32 leolusoli <leonardo.lusoli@gmail.com> 1743853576 +0200	commit: Minor fixes
+14c13c8727354dbbc723cc87be5dfecae8840a32 99ccff9c8b5e23c55355f86617ab2c1be6f9cbeb leolusoli <leonardo.lusoli@gmail.com> 1743857945 +0200	commit: Add loot - Pick up a loot and store in the InventoryManager
+99ccff9c8b5e23c55355f86617ab2c1be6f9cbeb 2b12cd7d820eeac26ee51ad863c1daa4031c40a6 leolusoli <leonardo.lusoli@gmail.com> 1744127059 +0200	commit: Implement inventory UI and consumable management system
+2b12cd7d820eeac26ee51ad863c1daa4031c40a6 b2d0a11232bf0e536b04bc64039c326e17ee117c leolusoli <leonardo.lusoli@gmail.com> 1744199758 +0200	commit: Add inventory UI elements and refactor related styles
+b2d0a11232bf0e536b04bc64039c326e17ee117c dad5529beaeba5b0bf7a27ec1a658a30b42e8a7b leolusoli <leonardo.lusoli@gmail.com> 1744280694 +0200	commit: Add Morning Dew consumable and update inventory UI styles
+dad5529beaeba5b0bf7a27ec1a658a30b42e8a7b 292265eeaa0db47726de28873dc3cbf600c2a3da leolusoli <leonardo.lusoli@gmail.com> 1744294444 +0200	commit: Enhance inventory management: add item usage functionality and improve menu interactions
+292265eeaa0db47726de28873dc3cbf600c2a3da f8a62b7803277da83ae9c7b7273c6970521ea60e leolusoli <leonardo.lusoli@gmail.com> 1744295887 +0200	commit: Various fixes
+f8a62b7803277da83ae9c7b7273c6970521ea60e 4e85b2e0650d989423867ca0422230218e6cadba leolusoli <leonardo.lusoli@gmail.com> 1744381586 +0200	commit: Add EffectProcessor
+4e85b2e0650d989423867ca0422230218e6cadba ad6555a945f2fbb9f57d31a651b9b12814a1c7ac leolusoli <leonardo.lusoli@gmail.com> 1744383944 +0200	commit: Refactor damage calculation and enhance effect processing: streamline player damage handling and add new damage effects
+ad6555a945f2fbb9f57d31a651b9b12814a1c7ac b00eb9a5aaeb97f684e84eee5ee492e07dc4f3d4 leolusoli <leonardo.lusoli@gmail.com> 1744385225 +0200	commit: Refactor effect handling: integrate EffectProcessor for bonus and coin collection, and enhance player damage management
+b00eb9a5aaeb97f684e84eee5ee492e07dc4f3d4 e562b0c13e374d7e6e199beaf8b81602307f271f leolusoli <leonardo.lusoli@gmail.com> 1744388969 +0200	commit: Add burn effect and enhance effect processing: implement burn damage handling and integrate burn resistance in player attributes
+e562b0c13e374d7e6e199beaf8b81602307f271f 879620ec4a57fe23c51ab6467cdda791107c72ca leolusoli <leonardo.lusoli@gmail.com> 1744662076 +0200	commit: Add poison and frost effects: implement poison and frost damage handling in player attributes and effect processing
+879620ec4a57fe23c51ab6467cdda791107c72ca 9da7670ba55c53f692eb01537ecf0edf5e0fac10 leolusoli <leonardo.lusoli@gmail.com> 1745164843 +0200	commit: Add stamina consumption and recovery effects: implement stamina consumption during actions and automatic recovery over time
+9da7670ba55c53f692eb01537ecf0edf5e0fac10 8ca38b445b6999d10dfbd678d49ee2efc6283abb leolusoli <leonardo.lusoli@gmail.com> 1745507384 +0200	commit: Refactor player talent management: change talent list type to TalentId and enhance talent-related methods for better clarity and functionality
+8ca38b445b6999d10dfbd678d49ee2efc6283abb 2cb787e26f8befc70513bcab4d94fe12d25cf59d leolusoli <leonardo.lusoli@gmail.com> 1745507454 +0200	commit: Add new talents to TalentDatabase: implement various abilities with descriptions and necessary characteristics
+2cb787e26f8befc70513bcab4d94fe12d25cf59d 5d8c0b6f4056d2d2cd4fcf4bc9d3675bb3ace198 leolusoli <leonardo.lusoli@gmail.com> 1745528393 +0200	commit: Enhance object interaction: implement pit object usage and improve grabbing mechanics
+5d8c0b6f4056d2d2cd4fcf4bc9d3675bb3ace198 e789d17ebd97cb28bf1c12d1eac46c4c5c396f0a leolusoli <leonardo.lusoli@gmail.com> 1745584734 +0200	commit: Fix typo in collision check comment and update variable declaration style in PitExampleObject
+e789d17ebd97cb28bf1c12d1eac46c4c5c396f0a caf4b68862e9093b94650b312327e2a22b858c70 leolusoli <leonardo.lusoli@gmail.com> 1745590343 +0200	commit: Add Wheel object: implement WheelObject class and integrate into gameplay mechanics
+caf4b68862e9093b94650b312327e2a22b858c70 536ab026cb1bb5f45d5538d609a351b91181fa87 leolusoli <leonardo.lusoli@gmail.com> 1745599323 +0200	commit: Various improvements on pit objects
+536ab026cb1bb5f45d5538d609a351b91181fa87 dfcf2135f039aee37dba5edb584867650c2a69a4 leolusoli <leonardo.lusoli@gmail.com> 1745604186 +0200	commit: Implement essence generation and pit object retrieval mechanics: implement cumulative chances for object spawning and update essence definitions
+dfcf2135f039aee37dba5edb584867650c2a69a4 b6b599d14a802c143ae03eb83bec1186f24df02e leolusoli <leonardo.lusoli@gmail.com> 1745836496 +0200	commit: Update essence and pit object databases: correct essence name casing, modify generation IDs, and add rarity attributes
+b6b599d14a802c143ae03eb83bec1186f24df02e 56a6e607166835a5c2e993e48cdf91ea169e8659 leolusoli <leonardo.lusoli@gmail.com> 1745836521 +0200	commit: Refactor PlayerController: streamline crouch handling, update collider management, and improve variable declarations
+56a6e607166835a5c2e993e48cdf91ea169e8659 fd2bd42a886e1e23af278ab77228be2fbfb5559a leolusoli <leonardo.lusoli@gmail.com> 1745844216 +0200	commit: Refactor various classes: change method visibility, streamline variable declarations, and enhance player detection logic
+fd2bd42a886e1e23af278ab77228be2fbfb5559a 271cf94da29a4d1646c744799d24e0337d4687e9 leolusoli <leonardo.lusoli@gmail.com> 1745845211 +0200	commit: Fix wheel destruction
+271cf94da29a4d1646c744799d24e0337d4687e9 cd693d8d3669495bfbe4b5907fede1d014b95623 leolusoli <leonardo.lusoli@gmail.com> 1746445920 +0200	commit: Fix and Improve equipment menu
+cd693d8d3669495bfbe4b5907fede1d014b95623 30d83510aa5267c15f41e2ae049d3edc9e78d4de leolusoli <leonardo.lusoli@gmail.com> 1746446812 +0200	commit: enforce previous commit
+30d83510aa5267c15f41e2ae049d3edc9e78d4de 3bb4bb59007fe70e829ffba54d5d692fed48e170 leolusoli <leonardo.lusoli@gmail.com> 1746465505 +0200	commit: Enhance equipment management: update UI to display equipment changes, add methods for retrieving equipment images and info, and improve player attributes calculations
+3bb4bb59007fe70e829ffba54d5d692fed48e170 63a0d14e67c472c4ddb4da1b83597d0ccd9f6062 leolusoli <leonardo.lusoli@gmail.com> 1749034770 +0200	commit: Add Status Menu Page
+63a0d14e67c472c4ddb4da1b83597d0ccd9f6062 b059e4748be606aff19da104a308aa2897d5e98a leolusoli <leonardo.lusoli@gmail.com> 1749136035 +0200	commit: Refactor equipment management: detach methods for equipment slots, update UI elements, and remove unused attributes
+b059e4748be606aff19da104a308aa2897d5e98a b0e7d4252c7618909b831b21310c9767135d56f6 leolusoli <leonardo.lusoli@gmail.com> 1749136051 +0200	commit: Add first formula for next level exp
+b0e7d4252c7618909b831b21310c9767135d56f6 3c6832b28a56564ec135cf630da151a4d5fe6062 leolusoli <leonardo.lusoli@gmail.com> 1749564918 +0200	commit: Various fixes and improvements including:
+3c6832b28a56564ec135cf630da151a4d5fe6062 cf36ef8ca0d97f0e0badaafaf9fa97990e3748b2 leolusoli <leonardo.lusoli@gmail.com> 1749679844 +0200	commit: Bullet enemy - Remove knock back - Fixed idle left and right
+cf36ef8ca0d97f0e0badaafaf9fa97990e3748b2 484ccc4765b18ddacca4c11e7f8153fa19643d82 leolusoli <leonardo.lusoli@gmail.com> 1749745078 +0200	commit: Object spawner - Deadbox improvements
+484ccc4765b18ddacca4c11e7f8153fa19643d82 e297b3b85952ed118087e2be357bf44491c44dfb leolusoli <leonardo.lusoli@gmail.com> 1749920641 +0200	commit: WIP save / load state
+e297b3b85952ed118087e2be357bf44491c44dfb d61c76ae9ae609cc9a79487bb85c4db4a2352cbb leolusoli <leonardo.lusoli@gmail.com> 1750110189 +0200	commit: Refactor inventory, essence handling, and game data logic.
+d61c76ae9ae609cc9a79487bb85c4db4a2352cbb 19b4bb4cef619e1130d04d26e277179519c8f36f leolusoli <leonardo.lusoli@gmail.com> 1750112154 +0200	commit: Implement game data save and load functionality
+19b4bb4cef619e1130d04d26e277179519c8f36f f419f6b0a673c1e97d99e882de6c49d75dceb34e leolusoli <leonardo.lusoli@gmail.com> 1756800580 +0200	pull: Fast-forward
+f419f6b0a673c1e97d99e882de6c49d75dceb34e f3e1cbeeed833b7b1f7a1b91dc648bfb586317e5 leolusoli <leonardo.lusoli@gmail.com> 1756801961 +0200	commit: Fix object generator
+f3e1cbeeed833b7b1f7a1b91dc648bfb586317e5 2eeb0b5a5fbb55692ed67b1d33b16f4495669c5b leolusoli <leonardo.lusoli@gmail.com> 1756805999 +0200	commit: Remove stamina and add energy WIP
+2eeb0b5a5fbb55692ed67b1d33b16f4495669c5b 19db00281485549ccbd9376cfe2639c39db94f84 leolusoli <leonardo.lusoli@gmail.com> 1756820230 +0200	commit: Implement energy consumption / recover when creating pit / jumping on enemies
+19db00281485549ccbd9376cfe2639c39db94f84 1fae9ff0bdbd8009dbd3e7236836f29b58b5dc53 leolusoli <leonardo.lusoli@gmail.com> 1757937237 +0200	commit: Move equipment menu in statue menu
+1fae9ff0bdbd8009dbd3e7236836f29b58b5dc53 771c2bcf3600601fe4bc16196049658a9b1c4f71 leolusoli <leonardo.lusoli@gmail.com> 1758880109 +0200	commit: Finish first version of essence equip statue menu
+771c2bcf3600601fe4bc16196049658a9b1c4f71 b617d43852469f509c22e128988ece3b34be44b2 leolusoli <leonardo.lusoli@gmail.com> 1759388562 +0200	commit: Add new essence
+b617d43852469f509c22e128988ece3b34be44b2 4c82113a4f62f15301890f48e13ca6b224d1d0d9 leolusoli <leonardo.lusoli@gmail.com> 1759388910 +0200	commit: Update essence database with new essence and adjust properties
+4c82113a4f62f15301890f48e13ca6b224d1d0d9 997fd9c495bafb3249f0b2ff97b411ee77faf7c6 leolusoli <leonardo.lusoli@gmail.com> 1759389211 +0200	commit: Test database
+997fd9c495bafb3249f0b2ff97b411ee77faf7c6 b234ce08ca14f45d472f254164de4327ef211588 leolusoli <leonardo.lusoli@gmail.com> 1759389301 +0200	commit: Test essence 2
+b234ce08ca14f45d472f254164de4327ef211588 af7920f03caf447b23e9df68cec8d24db7316ceb leolusoli <leonardo.lusoli@gmail.com> 1759392903 +0200	commit: Fix problem of essence database (restore separate version outside version class)
+af7920f03caf447b23e9df68cec8d24db7316ceb e530ef19b2ca810bf60836528bf0a0d5ec34cbb9 leolusoli <leonardo.lusoli@gmail.com> 1759532848 +0200	commit: Start level up menu
+e530ef19b2ca810bf60836528bf0a0d5ec34cbb9 c98b50f4408769d8b513721cc15514265e645fc3 leolusoli <leonardo.lusoli@gmail.com> 1759751550 +0200	commit: Upgrade Unity 6.2
+c98b50f4408769d8b513721cc15514265e645fc3 5c0afedf5bf364c85712caf89982e95d72132f97 leolusoli <leonardo.lusoli@gmail.com> 1759751639 +0200	commit: Improve Level Up Menu UI - Effective level up
+5c0afedf5bf364c85712caf89982e95d72132f97 9be6d1659066d23d3c89378252b9d4fbe1b3c6a5 leolusoli <leonardo.lusoli@gmail.com> 1759773093 +0200	commit: Update development steps in README.md for clarity and organization
+9be6d1659066d23d3c89378252b9d4fbe1b3c6a5 c77b0a9cacd7002fe122af75234deb2d398e3d8a leolusoli <leonardo.lusoli@gmail.com> 1762271507 +0100	commit: Update csproj
+c77b0a9cacd7002fe122af75234deb2d398e3d8a e4a7878e18b8bb1271443606ee14e40e11de207b leolusoli <leonardo.lusoli@gmail.com> 1762271703 +0100	rebase (finish): refs/heads/main onto 87724c25a03dc4e2bec62dfd25cb34147bb7d5ca
+e4a7878e18b8bb1271443606ee14e40e11de207b e364a67154845cc15236b982dfcd7e1338d3ec25 leolusoli <leonardo.lusoli@gmail.com> 1762272269 +0100	commit: Clear files and fix vcs issues
+e364a67154845cc15236b982dfcd7e1338d3ec25 209252fc19c5bccd573b0c3db1ecc9aae556387c leolusoli <leonardo.lusoli@gmail.com> 1762273455 +0100	commit: Add logging to event bus
+209252fc19c5bccd573b0c3db1ecc9aae556387c e0fca3e6eeb93515d32f8a0795ebcd866daafb9a leolusoli <leonardo.lusoli@gmail.com> 1762343631 +0100	commit: Renamed game data in game data session entity - Respawn enemies when touching the statues
+e0fca3e6eeb93515d32f8a0795ebcd866daafb9a 6586cadf4d7811585e0012f5ca1cca030cd2719d leolusoli <leonardo.lusoli@gmail.com> 1762343982 +0100	commit: Fix namespaces
+6586cadf4d7811585e0012f5ca1cca030cd2719d 94220d4cf1d07a0c40d568bf5ce2ccd885b5bc2b leolusoli <leonardo.lusoli@gmail.com> 1762448912 +0100	commit: Change world manager package
+94220d4cf1d07a0c40d568bf5ce2ccd885b5bc2b 7ed326e4d27d130c3e60d66d9a22dc02db16e78e leolusoli <leonardo.lusoli@gmail.com> 1762450849 +0100	commit: Refactor enum + life dropping logic - life spawner
+7ed326e4d27d130c3e60d66d9a22dc02db16e78e fce5b4a3f84c59c5fc1e958348a9124c5cef5fef leolusoli <leonardo.lusoli@gmail.com> 1762575755 +0100	commit: Fix life spawning
+fce5b4a3f84c59c5fc1e958348a9124c5cef5fef fc893f1240d941c9b487187c39ef7b1265958696 leolusoli <leonardo.lusoli@gmail.com> 1762816581 +0100	commit: Change wave amplitude
+fc893f1240d941c9b487187c39ef7b1265958696 aa2a9e259e2644dddefaa258d1463b3aadbeb834 leolusoli <leonardo.lusoli@gmail.com> 1762869086 +0100	commit: Refactor life handling - update types and logic for life items
+aa2a9e259e2644dddefaa258d1463b3aadbeb834 7c089a65fc393e89d13277dd4bc6b2b7b99a62aa leolusoli <leonardo.lusoli@gmail.com> 1762869610 +0100	commit: Add unique id to essence versions in order distinguish same essences
+7c089a65fc393e89d13277dd4bc6b2b7b99a62aa 2c4c45a63173bb843114134bf32c0f351b98e410 leolusoli <leonardo.lusoli@gmail.com> 1762871995 +0100	commit: Refactor event subscription logic adding Enable and Detach methods for UI components
+2c4c45a63173bb843114134bf32c0f351b98e410 00a7e83075046e0342a2279195c8bcb33ce3f811 leolusoli <leonardo.lusoli@gmail.com> 1763219218 +0100	pull: Fast-forward
+00a7e83075046e0342a2279195c8bcb33ce3f811 ef582d7aac7d732e01f3427b58761c101f149037 leolusoli <leonardo.lusoli@gmail.com> 1763224560 +0100	commit: Various improvements - Improve House Scene + Implement invisible walls
+ef582d7aac7d732e01f3427b58761c101f149037 45e37acf2966ebcd3e54631f0399fe068dd4e5d5 leolusoli <leonardo.lusoli@gmail.com> 1763422912 +0100	commit: Add some constants and removed some old commented code
+45e37acf2966ebcd3e54631f0399fe068dd4e5d5 cdab20f34652a716346576655602e056ca245200 leolusoli <leonardo.lusoli@gmail.com> 1763477335 +0100	commit: Various minor fixes and some bilancing improvements
+cdab20f34652a716346576655602e056ca245200 26820ee3d3be09dd8e10568bd8d44c8dbab9ffcb leolusoli <leonardo.lusoli@gmail.com> 1763659354 +0100	commit: - Create two new behaviours for enemies
+26820ee3d3be09dd8e10568bd8d44c8dbab9ffcb 6272f717b471d640b4d694680bf4ee2804d4fc81 leolusoli <leonardo.lusoli@gmail.com> 1763659367 +0100	commit: update project references
+6272f717b471d640b4d694680bf4ee2804d4fc81 347d9f4b96c554cceb4e2f0d3356396419105b25 leolusoli <leonardo.lusoli@gmail.com> 1764831296 +0100	commit: Minor fixes + some ideas + Room improvements
+347d9f4b96c554cceb4e2f0d3356396419105b25 8c11340301c2f3151c2eaff158f729fc55260db2 leolusoli <leonardo.lusoli@gmail.com> 1764951981 +0100	commit: Various fixes + combat room + fix rest on statue enemies respawn
+8c11340301c2f3151c2eaff158f729fc55260db2 9c2f95b6de9e701cb74c47faaf930be226e464e1 leolusoli <leonardo.lusoli@gmail.com> 1764951991 +0100	commit: Update project references and re-add previously removed scripts
+9c2f95b6de9e701cb74c47faaf930be226e464e1 4c8f1a08f960a4145eb66d309956985fafeb4ff0 leolusoli <leonardo.lusoli@gmail.com> 1765295887 +0100	commit: Refactor constants file - Add AutoSceneCleaner script
+4c8f1a08f960a4145eb66d309956985fafeb4ff0 e88e0be76eb6815ba0b0275cd2767e70b04c9ca6 leolusoli <leonardo.lusoli@gmail.com> 1765383492 +0100	commit: Add copperleaf consumable item
+e88e0be76eb6815ba0b0275cd2767e70b04c9ca6 9e49b85131b9e21fe1dd98d7412e3407c23accc5 leolusoli <leonardo.lusoli@gmail.com> 1765383536 +0100	commit: Fix bug on grabbing pit objects - Move common-scene tilemaps into singleton controller
+9e49b85131b9e21fe1dd98d7412e3407c23accc5 c9f06930698e78f23f7281d14151a91ba0b9e9da leolusoli <leonardo.lusoli@gmail.com> 1765552236 +0100	commit: Handle linearGround - Handle multi scene additive loading / unloading - various fixes
+c9f06930698e78f23f7281d14151a91ba0b9e9da ccb69db86cbbffd6dbe60ff5503218bbf43554f7 leolusoli <leonardo.lusoli@gmail.com> 1765652200 +0100	commit: - Cleared combat room stay cleared across saved
+ccb69db86cbbffd6dbe60ff5503218bbf43554f7 fda9c9beba3562b5d079785d20f1d350f6f81a23 leolusoli <leonardo.lusoli@gmail.com> 1765809068 +0100	commit: - Add consumables active until death
+fda9c9beba3562b5d079785d20f1d350f6f81a23 a473e5418552c98f102b03b4bde9da94b98f3995 leolusoli <leonardo.lusoli@gmail.com> 1766690025 +0100	commit: - Enemy Dormant State
+a473e5418552c98f102b03b4bde9da94b98f3995 6916fd146d7751a126995666f77a72d2a7e55324 leolusoli <leonardo.lusoli@gmail.com> 1766690051 +0100	commit: Enforce previous commit
+6916fd146d7751a126995666f77a72d2a7e55324 6178ce36d7ec8ebc0d30a1dc4e4d0c9e4bd5a8b0 leolusoli <leonardo.lusoli@gmail.com> 1767090452 +0100	commit: Add dialogue system components and integrate with event bus
+6178ce36d7ec8ebc0d30a1dc4e4d0c9e4bd5a8b0 117b5a7349fbb60557bf2d8d11dbc52beef993ce leolusoli <leonardo.lusoli@gmail.com> 1767173142 +0100	pull: Fast-forward
+117b5a7349fbb60557bf2d8d11dbc52beef993ce e4fd6c0da45bd52d8c85dd31e73917d20289cb6e leolusoli <leonardo.lusoli@gmail.com> 1767368224 +0100	commit: Continue dialog system
+e4fd6c0da45bd52d8c85dd31e73917d20289cb6e d2072ddca6b7ac17c2011e30638b62bc1d2ccb35 leolusoli <leonardo.lusoli@gmail.com> 1767394550 +0100	commit: Save / Load ink dialogue state
+d2072ddca6b7ac17c2011e30638b62bc1d2ccb35 c32492ff7bfc2eff5909640a547710a9d0eb1ec2 leolusoli <leonardo.lusoli@gmail.com> 1767486366 +0100	commit: - Basic quest system
+c32492ff7bfc2eff5909640a547710a9d0eb1ec2 0b2dc306ead5ac675044ea599255d9a0ea9869c2 leolusoli <leonardo.lusoli@gmail.com> 1767615821 +0100	commit: Change namespace to dialogue handler
+0b2dc306ead5ac675044ea599255d9a0ea9869c2 75ea1056001e54bf13c4c99dd4a2fa6629a3e673 leolusoli <leonardo.lusoli@gmail.com> 1767627620 +0100	commit: Fix namespaces
+75ea1056001e54bf13c4c99dd4a2fa6629a3e673 ae013af99a5966fce0d7bb69772485c9d7233a2f leolusoli <leonardo.lusoli@gmail.com> 1767801002 +0100	commit: Implement data handling for Shop feature
+ae013af99a5966fce0d7bb69772485c9d7233a2f b9e2aebc5b288cd978c0ce79e3c978aa05a4f7d4 leolusoli <leonardo.lusoli@gmail.com> 1767828688 +0100	commit: Almost finished shop system
+b9e2aebc5b288cd978c0ce79e3c978aa05a4f7d4 c7ab82d4e35f4be0046d79e81d4e57b2b198c0a6 leolusoli <leonardo.lusoli@gmail.com> 1767881181 +0100	commit: Finish dialogue system (apart from UI)
+c7ab82d4e35f4be0046d79e81d4e57b2b198c0a6 ee1f69915313fe14189b1d01c63ad1c71d2c2f5a leolusoli <leonardo.lusoli@gmail.com> 1767883586 +0100	commit: Scroll to selection feature
+ee1f69915313fe14189b1d01c63ad1c71d2c2f5a f7621392e6e7756b4cbbea4e103a4cb04b73f7a7 leolusoli <leonardo.lusoli@gmail.com> 1768315566 +0100	commit: Update readme - Improve ladder climbing
+f7621392e6e7756b4cbbea4e103a4cb04b73f7a7 0c22b3820478d576110d62e52ee76078f8b5c209 leolusoli <leonardo.lusoli@gmail.com> 1768320353 +0100	commit: Decide start walking direction looking local scale of the enemy
+0c22b3820478d576110d62e52ee76078f8b5c209 689f2f4a6987e486d4a0e32ef4ad16b267eb48ec leolusoli <leonardo.lusoli@gmail.com> 1768324120 +0100	commit: Various improvements
+689f2f4a6987e486d4a0e32ef4ad16b267eb48ec 6c57f219ab7d2da3575f531647bb8bcfbabc53a5 leolusoli <leonardo.lusoli@gmail.com> 1768525283 +0100	commit: Refactor jump and movement using states (much better like this) - Little code refactor
+6c57f219ab7d2da3575f531647bb8bcfbabc53a5 de4a7f7abca3ccab438440d6dcde23bd74c2c417 leolusoli <leonardo.lusoli@gmail.com> 1768562637 +0100	commit: Use function to set states (in order to change after animation after)
+de4a7f7abca3ccab438440d6dcde23bd74c2c417 7c43ac61cfc3764b70b12fd8c3f48a5993c80954 leolusoli <leonardo.lusoli@gmail.com> 1768603003 +0100	commit: First version of shooting enemy done
+7c43ac61cfc3764b70b12fd8c3f48a5993c80954 c30311d983bc251e4408a831ddda5640d71be7eb leolusoli <leonardo.lusoli@gmail.com> 1769112378 +0100	commit: Improve combat rooms
+c30311d983bc251e4408a831ddda5640d71be7eb 8e47476ad4c95d4e0a3d5669c1443f70a6912213 leolusoli <leonardo.lusoli@gmail.com> 1769468222 +0100	commit: Elevators and Popju bear improvements
+8e47476ad4c95d4e0a3d5669c1443f70a6912213 63893e1940784874fcc2b4d70dcff9a30328a937 leolusoli <leonardo.lusoli@gmail.com> 1769472542 +0100	commit: Various imporvements
+63893e1940784874fcc2b4d70dcff9a30328a937 0c875fd810fde9269372beb243ed1db955a805cb leolusoli <leonardo.lusoli@gmail.com> 1770680096 +0100	pull: Fast-forward
+0c875fd810fde9269372beb243ed1db955a805cb 6d1538b23f37789d60637cd40448e3c387a69cdb leolusoli <leonardo.lusoli@gmail.com> 1770825854 +0100	commit: Some ideas + bonus refactor + remove logs
+6d1538b23f37789d60637cd40448e3c387a69cdb 0d8565a26581a7adf66b34a4a7fb5136f8f43714 leolusoli <leonardo.lusoli@gmail.com> 1770932039 +0100	commit: Fix some parameters
+0d8565a26581a7adf66b34a4a7fb5136f8f43714 b876570eaafb1810ad32f129a0e1974393cab717 leolusoli <leonardo.lusoli@gmail.com> 1770937058 +0100	commit: Add chests
+b876570eaafb1810ad32f129a0e1974393cab717 6ca473c79ce34d154f7501b80c85c2b300e233e6 leolusoli <leonardo.lusoli@gmail.com> 1771286162 +0100	commit: Various fixes - Almost finish first level
+6ca473c79ce34d154f7501b80c85c2b300e233e6 622d66e30cef861e93b367520c1d58a42ff8c1bf leolusoli <leonardo.lusoli@gmail.com> 1771506963 +0100	commit: - Fix inventory items (having id and not entire item)
+622d66e30cef861e93b367520c1d58a42ff8c1bf a698dca4afda2466a52f2d63d18eb82d03a34cbf leolusoli <leonardo.lusoli@gmail.com> 1771545455 +0100	commit: Update ShopItemSlot and ShopModel to accept shop quantity parameter
+a698dca4afda2466a52f2d63d18eb82d03a34cbf 4feef417a85df38513619c948a6033d417d9f455 leolusoli <leonardo.lusoli@gmail.com> 1771932392 +0100	commit: Various minor fixes
+4feef417a85df38513619c948a6033d417d9f455 b30bb02e3f80ebe344ecc13a97ae90a9bb62896d leolusoli <leonardo.lusoli@gmail.com> 1771974015 +0100	commit: Level -1.0 spawn points
+b30bb02e3f80ebe344ecc13a97ae90a9bb62896d 4a3e0e3f7523a6a72648fd7f67d011c0864cc14d leolusoli <leonardo.lusoli@gmail.com> 1771974144 +0100	commit: - Track open doors
+4a3e0e3f7523a6a72648fd7f67d011c0864cc14d 4a10bdc5ddd565a78ebb18f78434c64f929ba207 leolusoli <leonardo.lusoli@gmail.com> 1771974176 +0100	commit: Teleport player from clay crusher to rswo
+4a10bdc5ddd565a78ebb18f78434c64f929ba207 09bcf98c42a9f46b06bde9cff30d9c58ec86d60c leolusoli <leonardo.lusoli@gmail.com> 1771974188 +0100	commit: Add clown key
+09bcf98c42a9f46b06bde9cff30d9c58ec86d60c e7d2341270eb60d0a55cd205242b127dbb7d712a leolusoli <leonardo.lusoli@gmail.com> 1771975515 +0100	commit: - Remove useless log
+e7d2341270eb60d0a55cd205242b127dbb7d712a cf8794559ec77ac9eedbb42c903dfd5b1bc1de02 leolusoli <leonardo.lusoli@gmail.com> 1772401701 +0100	commit: Enemy melee attack state
+cf8794559ec77ac9eedbb42c903dfd5b1bc1de02 fa692967cec81f4f8edbdc8d5c1cf3674440d418 leolusoli <leonardo.lusoli@gmail.com> 1772455673 +0100	commit: - Rock Launcher
+fa692967cec81f4f8edbdc8d5c1cf3674440d418 8179d196a54ff4aad1912caaf2b106bb5b712133 leolusoli <leonardo.lusoli@gmail.com> 1772547033 +0100	commit: Various improvements
+8179d196a54ff4aad1912caaf2b106bb5b712133 41f0d5a042b8db5558d27f29d77d0c220731fbb4 leolusoli <leonardo.lusoli@gmail.com> 1772617599 +0100	commit: Add release object and use it
+41f0d5a042b8db5558d27f29d77d0c220731fbb4 bd67512a6ffc3be924570903179ef9883badb288 leolusoli <leonardo.lusoli@gmail.com> 1772660371 +0100	commit: Remove persistent unique id (finally)
+bd67512a6ffc3be924570903179ef9883badb288 c351a57573574fdd6ff57956c2918b639d350623 leolusoli <leonardo.lusoli@gmail.com> 1772660598 +0100	commit: Single PitSpawner in Camera
+c351a57573574fdd6ff57956c2918b639d350623 cb738da16269c4c88a444aa0d884d5bbbe27d819 leolusoli <leonardo.lusoli@gmail.com> 1772707085 +0100	commit: - Remove unused sprites
+cb738da16269c4c88a444aa0d884d5bbbe27d819 61b35f474c00e92ac311a10cde44979214b3ef62 leolusoli <leonardo.lusoli@gmail.com> 1772710621 +0100	commit: Refactor Life
+61b35f474c00e92ac311a10cde44979214b3ef62 001ef0c4f4602a095fc544649ea21319dc2ef2e4 leolusoli <leonardo.lusoli@gmail.com> 1773057750 +0100	commit: Add some life images
+001ef0c4f4602a095fc544649ea21319dc2ef2e4 ccbe4c2392f0ebff547e0b738d1816c3cabbdcd4 leolusoli <leonardo.lusoli@gmail.com> 1773059636 +0100	commit: Add EnemyDormantStayStill behavior and enhance chase logic
+ccbe4c2392f0ebff547e0b738d1816c3cabbdcd4 cd8b95bb404139d3ea9db0f06fba7536604ba4bf leolusoli <leonardo.lusoli@gmail.com> 1773950953 +0100	commit: Blue cult leader boss + Various fixes and improvements
+cd8b95bb404139d3ea9db0f06fba7536604ba4bf 22db1c29567e27eabca378d43bb29b57486f1bd2 leolusoli <leonardo.lusoli@gmail.com> 1774006483 +0100	commit: Don't throw for a common case
+22db1c29567e27eabca378d43bb29b57486f1bd2 1784c7c5c48d71f6c8134b2d4f7cc7a4a23e3414 leolusoli <leonardo.lusoli@gmail.com> 1774348651 +0100	commit: Visual tip - Various fixes
+1784c7c5c48d71f6c8134b2d4f7cc7a4a23e3414 1dd200fc4cfaed4e52064492e6d712ca36c5ab28 leolusoli <leonardo.lusoli@gmail.com> 1774352689 +0100	commit: Improve visual tips and add it to the player also
+1dd200fc4cfaed4e52064492e6d712ca36c5ab28 565ba77e80f6d11e57631873b8f2bd80769b1403 leolusoli <leonardo.lusoli@gmail.com> 1774612441 +0100	commit: Save not in a respawn point
+565ba77e80f6d11e57631873b8f2bd80769b1403 e124a1fb55f6a89ee6acdcc05247e584e4b10235 leolusoli <leonardo.lusoli@gmail.com> 1774617289 +0100	commit: Keep ink variables updated
+e124a1fb55f6a89ee6acdcc05247e584e4b10235 0c62c4a41106b3476158ffc0a12d51febdb74086 leolusoli <leonardo.lusoli@gmail.com> 1780576200 +0200	commit: fix some object informations
+0c62c4a41106b3476158ffc0a12d51febdb74086 1da135bcb7c9f0d6b30fc6fbb68b62b4a9f7950b leolusoli <leonardo.lusoli@gmail.com> 1780576244 +0200	commit: add claude.md for help claude to work effectlely
+1da135bcb7c9f0d6b30fc6fbb68b62b4a9f7950b ef5b7eac342f96dfc19f5d52e80da3aa555a3b40 leolusoli <leonardo.lusoli@gmail.com> 1780582968 +0200	commit: improve quest model - store current npc quest state - active / deactive npc based on quest phase
+ef5b7eac342f96dfc19f5d52e80da3aa555a3b40 ebf5d198204093a2adc6814da239a4ab786eae1b leolusoli <leonardo.lusoli@gmail.com> 1780582991 +0200	commit: unity update
+ebf5d198204093a2adc6814da239a4ab786eae1b a263ac716f1337f73c313340253deda9f24dc876 leolusoli <leonardo.lusoli@gmail.com> 1780670385 +0200	commit: add invicible talent
+a263ac716f1337f73c313340253deda9f24dc876 feeb0fd43d05bd58802447929b0226fbaef3a45a leolusoli <leonardo.lusoli@gmail.com> 1780670576 +0200	commit: fix enemy bullet collision detection with player
+feeb0fd43d05bd58802447929b0226fbaef3a45a 3fe053d959ad50565325cb86bf9271c486bbda28 leolusoli <leonardo.lusoli@gmail.com> 1780753130 +0200	commit: add lazy person behavioural essence - fix equipment of behavioural essences - fix ui bug in available essence slot
+3fe053d959ad50565325cb86bf9271c486bbda28 82d25c9ccb20bd3820a4ae41db0a8921ceb2eaa8 leolusoli <leonardo.lusoli@gmail.com> 1780787504 +0200	commit: refactor essence slots - reduce total slots to 8 and update inventory model accordingly
+82d25c9ccb20bd3820a4ae41db0a8921ceb2eaa8 78c13bc8bd59969c8a8a4979459bc9ff60adcdc7 leolusoli <leonardo.lusoli@gmail.com> 1781385243 +0200	pull: Fast-forward
+78c13bc8bd59969c8a8a4979459bc9ff60adcdc7 69a2e65b681a1cb7e1c1de73fda22dc25b2093e8 leolusoli <leonardo.lusoli@gmail.com> 1781396729 +0200	commit: remove old and unused combat systems behabiours
+69a2e65b681a1cb7e1c1de73fda22dc25b2093e8 871cef4f1e4a1930a8911dcf1aa00f6518b860c4 leolusoli <leonardo.lusoli@gmail.com> 1781697162 +0200	commit: update scheme mount config with -1.1_sewers
+871cef4f1e4a1930a8911dcf1aa00f6518b860c4 286d28cf94bd4f5e094b1a7817a0c7697b35e31e leolusoli <leonardo.lusoli@gmail.com> 1781701494 +0200	commit: Fix lazy essence behaviour + disable damage on dash
+286d28cf94bd4f5e094b1a7817a0c7697b35e31e 020112b46dce9b7596c8dfd0df57f541cf53729a leolusoli <leonardo.lusoli@gmail.com> 1781705430 +0200	commit: Add ContinuousAToBMovingPlatform
+020112b46dce9b7596c8dfd0df57f541cf53729a 77f703d747fa7db6d6b894b16262af9000594355 leolusoli <leonardo.lusoli@gmail.com> 1781707710 +0200	commit: add Crustacean Soup object
+77f703d747fa7db6d6b894b16262af9000594355 e8162351f71616ae4aaee534435271cba57bf633 leolusoli <leonardo.lusoli@gmail.com> 1781792879 +0200	commit: Add CrustaceanSoup
+e8162351f71616ae4aaee534435271cba57bf633 e8d3dd800f5f797777c72bfdced7bb123c2992a5 leolusoli <leonardo.lusoli@gmail.com> 1781793082 +0200	commit: gameplay events + door unlocking using gameplay events
+e8d3dd800f5f797777c72bfdced7bb123c2992a5 5f7adb455b96a51b3fa53db77a89a238aef23f5b leolusoli <leonardo.lusoli@gmail.com> 1781794853 +0200	commit: pit objects sprites
+5f7adb455b96a51b3fa53db77a89a238aef23f5b 0625dc568816f63c73301d393afcd6b1f65d9e90 leolusoli <leonardo.lusoli@gmail.com> 1781905234 +0200	commit: fix comment
+0625dc568816f63c73301d393afcd6b1f65d9e90 9b121866bb0aaee7c7dc07f8443a1608bafd3bf9 leolusoli <leonardo.lusoli@gmail.com> 1781905266 +0200	commit: add gameplay events collections - add single activation lever mb
+9b121866bb0aaee7c7dc07f8443a1608bafd3bf9 fe3d6c4ab77474975454e00bb93566ccef346116 leolusoli <leonardo.lusoli@gmail.com> 1781964920 +0200	commit: add poison build up also for enemies
+fe3d6c4ab77474975454e00bb93566ccef346116 933fcbaec788d6c78e480c0db67b60128ae9ad53 leolusoli <leonardo.lusoli@gmail.com> 1781969130 +0200	commit: add puzzle to the sewers and complete the level

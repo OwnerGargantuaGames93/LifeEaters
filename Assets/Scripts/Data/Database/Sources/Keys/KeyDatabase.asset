@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d1196f9d2e48a79f7b6062faf69388, type: 3}
+  m_Name: KeyDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Data.Database.KeyDatabase
+  Items:
+  - Name: House Key
+    Description: An old key hidden in the attic among the little boxes. Useful in
+      emergencies.
+    ShortDescription: 
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 0
+  - Name: Warning Note
+    Description: "A crumpled old sheet, hastily written in a trembling hand. /n\u201CRun
+      to Grandpa\u2019s house, you\u2019ll find me there. We\u2019re under an alien
+      invasion and they want our Lives. Be careful.\u201D"
+    ShortDescription: 
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 1
+  - Name: Fridge Key
+    Description: "A small metal key that opens the refrigerator in the basement.
+      Who knows if there\u2019s really food inside\u2026 or something better left
+      unfound."
+    ShortDescription: 
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 2
+  - Name: Sistem Room Key
+    Description: "A light key with a full-moon similar charm hanging from its ring,
+      its carved face barely visible in the curve. There\u2019s something in that
+      expression that feels strangely familiar."
+    ShortDescription: 
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 3
+  - Name: Flowered Tower Key
+    Description: 
+    ShortDescription: 
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 4
+  - Name: Bridge Control Room Key
+    Description: Una chiave trovata in un vecchio ufficio logistico sotteraneo abbandonato.
+    ShortDescription: Una chiave trovata in un vecchio ufficio logistico sotteraneo
+      abbandonato.
+    GamePlayDescription: Apre la porta della sala di controllo del ponte per accedere
+      al Grande Frantoio.
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 5
+  - Name: Carriage No. 2 Key
+    Description: "A key that unlocks the fleeing merchant\u2019s secret carriage.
+      After retiring from his old job, the merchant built a hidden bunker to survive
+      a possible human extinction \u2014 proof that in small rural towns, rumors
+      can take very deep root."
+    ShortDescription: "A key that unlocks the fleeing merchant\u2019s secret carriage."
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 6
+  - Name: Clown Key
+    Description: "A key that opens the cell of the odd fellow locked on the first
+      floor. One must always be cautious\u2026 even when dealing with presumed lunatics."
+    ShortDescription: A key that opens the cell of the odd fellow locked on the first
+      floor
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 7
+  - Name: Group.hol
+    Description: "An old external storage device of unknown origin. It contains an
+      executable program. The machine capable of reading it appears to be a sound
+      frequency generator. The message played by the program is as follows: \u201C????\u201D"
+    ShortDescription: An old external storage device of unknown origin
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 8
+  - Name: Western Outpost Key
+    Description: "A gigantic key meant for a very large lock. It is used to open
+      the main gate of the sect\u2019s western outpost."
+    ShortDescription: A gigantic key meant for a very large lock.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    Id: 9

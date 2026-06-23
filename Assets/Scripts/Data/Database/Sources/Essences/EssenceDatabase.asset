@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e32ac191e714b5b8c177f84779e635c, type: 3}
+  m_Name: EssenceDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Data.Database.EssenceDatabase
+  items:
+  - Name: Shepard Essence
+    Description: If a piece of land is not used for extraction, it is usually purchased
+      by farmers or shepherds. The latter are typically introverted people with little
+      interest in social life. They simply prefer to stay with their animals.
+    ShortDescription: Essence of a Life grown within a shepard.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 1
+    type: 0
+    turnOutEarn: 0
+    generations:
+    - id: 1
+      chance: 30
+  - Name: Miner Essence
+    Description: "Mining is the most common job around here. It doesn\u2019t require
+      any particular academic skills, and the pay is very good."
+    ShortDescription: Essence of a Life grown within a miner.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 2
+    type: 0
+    turnOutEarn: 0
+    generations:
+    - id: 0
+      chance: 30
+  - Name: Mechanical Essence
+    Description: The mechanics of these lands repair the machines used to extract
+      clay, which wear down very easily.
+    ShortDescription: Essence of a Life grown within a mechanic.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 3
+    type: 0
+    turnOutEarn: 0
+    generations:
+    - id: 1
+      chance: 15
+  - Name: Patient Essence
+    Description: Patience is a very important concept for the members of this sect.
+      One of their core principles was the wait of the Great Migration, which eventually
+      did occur.
+    ShortDescription: Essence of a Life grown within the clue cult leader.
+    GamePlayDescription: 
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 5
+    type: 1
+    turnOutEarn: 500
+    generations: []
+  - Name: Lazy Essence
+    Description: Essenza estratta dalla Vita di un essere pigro. Molte volte si preferiscono
+      le cose fatte, che le cose ancora da fare.
+    ShortDescription: Essenza estratta dalla Vita di un essere pigro.
+    GamePlayDescription: Riduce area di generazione dei tombini.
+    SmallIcon: {fileID: 0}
+    Icon: {fileID: 0}
+    ShopDescriptions: []
+    id: 6
+    type: 1
+    turnOutEarn: 500
+    generations: []

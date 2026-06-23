@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b22d4c521782466389cfa2517fa780ab, type: 3}
+  m_Name: TalentDatabase
+  m_EditorClassIdentifier: 
+  Items:
+  - Id: 0
+    Name: Running
+    ShortDescription: Press R to increase your velocity
+    LongDescription: 
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 1
+      Agility: 1
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 1
+    Name: Jumping
+    ShortDescription: Press SPACE to jump
+    LongDescription: Use it for explore the world and deals basic damage to enemies
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 1
+      Agility: 1
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 3
+    Name: Dashing
+    ShortDescription: Press TAB to dash
+    LongDescription: Use it for avoid enemies
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 2
+      Agility: 4
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 2
+    Name: Double Jumping
+    ShortDescription: Press SPACE in middle air to make an additional jump
+    LongDescription: You have HUGE abdonimal muscles
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 4
+      Agility: 6
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 01000000
+  - Id: 4
+    Name: Wall Jumping
+    ShortDescription: You can slide to some walls and make jumping using it
+    LongDescription: Perfect for reach zone that you never explored.
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 5
+      Agility: 7
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 7
+    Name: Teleporting
+    ShortDescription: Unleash Australe power to reach a previous destination
+    LongDescription: Australe has the power of manipulating space and time. But now
+      is old and tired
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 1
+      Agility: 1
+      Human: 1
+      God: 4
+      Alien: 1
+    RequiredTalents: 
+  - Id: 9
+    Name: Climbing
+    ShortDescription: Climb stairs pressing up. Move up and down using arrows.
+    LongDescription: Australe has the power of manipulating space and time. But now
+      is old and tired
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 2
+      Agility: 3
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 11
+    Name: Grabbing
+    ShortDescription: Press P to pick up objects
+    LongDescription: You can pick up objects from the ground.. and not only
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 2
+      Agility: 1
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 
+  - Id: 12
+    Name: Throwing
+    ShortDescription: Press P with and object to throw it
+    LongDescription: Kill enemies throwing object or move things in the world for
+      complete puzzles
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 2
+      Agility: 1
+      Human: 1
+      God: 1
+      Alien: 1
+    RequiredTalents: 0b000000
+  - Id: 36
+    Name: Life Eating
+    ShortDescription: You can eat life and gain 1UP, other that secret powers
+    LongDescription: The old and absurd practice by the RU inhabitants. A strange
+      way to search eternity
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 1
+      Agility: 1
+      Human: 1
+      God: 1
+      Alien: 2
+    RequiredTalents: 
+  - Id: 37
+    Name: Pit Generation
+    ShortDescription: Press ENTER to generate pits
+    LongDescription: If you have Grab ability, press P to pick up an object based
+      on the equiped life essences.
+    NecessaryCharacteristics:
+      Vitality: 1
+      Strength: 1
+      Agility: 1
+      Human: 1
+      God: 2
+      Alien: 1
+    RequiredTalents: 

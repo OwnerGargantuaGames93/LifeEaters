@@ -1,0 +1,10 @@
+0000000000000000000000000000000000000000 d67d32d5b22e796a6546dc5cbb84e9ec41e1789b leolusoli <leonardo.lusoli@gmail.com> 1744377692 +0200	WIP on main: f8a62b7 Various fixes
+d67d32d5b22e796a6546dc5cbb84e9ec41e1789b 4001667f14e8173fa80211a375f91cfd33844ee6 leolusoli <leonardo.lusoli@gmail.com> 1749678868 +0200	WIP on main: 3c6832b Various fixes and improvements including: - basic door system - remove stunned property - key objects database - initial load data of some items - fix spawning of pit in some bad positions
+4001667f14e8173fa80211a375f91cfd33844ee6 03c82d59faad80236085fdc7a8897950f9c7d3bf leolusoli <leonardo.lusoli@gmail.com> 1751622349 +0200	WIP on feature/statue-menu: b7f59a8 Handling GameOver and respawn logic
+03c82d59faad80236085fdc7a8897950f9c7d3bf 99ee34c64d27282b28ba4cc371b35f32571eccc2 leolusoli <leonardo.lusoli@gmail.com> 1756800577 +0200	WIP on main: 19b4bb4 Implement game data save and load functionality
+99ee34c64d27282b28ba4cc371b35f32571eccc2 699151aa5c28fe921e9ac021fec853d0987234f4 leolusoli <leonardo.lusoli@gmail.com> 1762271475 +0100	WIP on main: 9be6d16 Update development steps in README.md for clarity and organization
+699151aa5c28fe921e9ac021fec853d0987234f4 0873c822514cb0412d42c4ff82a8053c9813e6b9 leolusoli <leonardo.lusoli@gmail.com> 1762271597 +0100	WIP on main: c77b0a9 Update csproj
+0873c822514cb0412d42c4ff82a8053c9813e6b9 66f1a83b73b995924001a01bad8de53d3e6a1c52 leolusoli <leonardo.lusoli@gmail.com> 1762271628 +0100	WIP on main: c77b0a9 Update csproj
+66f1a83b73b995924001a01bad8de53d3e6a1c52 c5839486ef55b0b9f54dcc5f0a99c4665da2f907 leolusoli <leonardo.lusoli@gmail.com> 1768320363 +0100	WIP on main: 0c22b38 Decide start walking direction looking local scale of the enemy
+c5839486ef55b0b9f54dcc5f0a99c4665da2f907 ff99b459b09ef1adcb27f5cc11daa4ed24fe824c leolusoli <leonardo.lusoli@gmail.com> 1768320852 +0100	WIP on main: 0c22b38 Decide start walking direction looking local scale of the enemy
+ff99b459b09ef1adcb27f5cc11daa4ed24fe824c 4f0cfc97045bae5d553605d4af776f731f6de8d6 leolusoli <leonardo.lusoli@gmail.com> 1770680093 +0100	WIP on main: 63893e1 Various imporvements
