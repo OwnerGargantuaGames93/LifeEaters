@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Boundary.Enemy.Interfaces;
 using Boundary.Enemy.StateMachine;
 using Boundary.Enemy.StateMachine.ConcreteStates;
 using Boundary.GamePlay.Enemy.Behaviors.Chase;
 using Boundary.GamePlay.Enemy.Behaviors.Dormant;
 using Boundary.GamePlay.Enemy.Behaviors.Idle;
-using Boundary.GamePlay.Enemy.Behaviors.MeleeAttack; // namespace also used by EnemyCooldownSOBase
+using Boundary.GamePlay.Enemy.Behaviors.MeleeAttack;
 using Boundary.GamePlay.Enemy.StateMachine.ConcreteStates;
 using Boundary.GamePlay.Interactable;
 using Boundary.Interactable;
+using Boundary.Player;
 using Boundary.UI.Components;
 using Boundary.Utils;
 using Control.Damage.UseCase;
@@ -71,6 +73,16 @@ namespace Boundary.GamePlay.Enemy.Base
 
         #region Knockback
         public bool isKnockedBack;
+        #endregion
+
+        #region Death Sequence
+        [SerializeField] private float deathBounceForce = 12f;
+        [SerializeField] private int deathSortingOrderBoost = 1000;
+        [SerializeField] private float deathOffscreenViewportMargin = 0.15f;
+        private bool _isDying;
+        private SpriteRenderer[] _spriteRenderers;
+        private int[] _originalSortingOrders;
+        private float _originalGravityScale;
         #endregion
 
         #region Data to expose
@@ -214,13 +226,17 @@ namespace Boundary.GamePlay.Enemy.Base
             _eventBus.Subscribe<EEnemyHitByPitObjectEvent>(OnHitByPitObject);
             _eventBus.Subscribe<EEnemyFallInDeadBox>(OnEnemyFallInDeadBox);
             _eventBus.Subscribe<EPlayerRestOnStatue>(OnPlayerRestOnStatue);
+            _eventBus.Subscribe<EPlayerDied>(OnPlayerDied);
+            _eventBus.Subscribe<EPlayerRespawned>(OnPlayerRespawned);
         }
-        
+
         private void UnsubscribeFromEvents()
         {
             _eventBus.Unsubscribe<EEnemyHitByPitObjectEvent>(OnHitByPitObject);
             _eventBus.Unsubscribe<EEnemyFallInDeadBox>(OnEnemyFallInDeadBox);
             _eventBus.Unsubscribe<EPlayerRestOnStatue>(OnPlayerRestOnStatue);
+            _eventBus.Unsubscribe<EPlayerDied>(OnPlayerDied);
+            _eventBus.Unsubscribe<EPlayerRespawned>(OnPlayerRespawned);
         }
 
         private void OnDestroy()
@@ -232,6 +248,10 @@ namespace Boundary.GamePlay.Enemy.Base
         {
             Rb = GetComponent<Rigidbody2D>();
             TouchingDirections = GetComponent<TouchingDirections>();
+
+            _originalGravityScale = Rb.gravityScale;
+            _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            _originalSortingOrders = _spriteRenderers.Select(r => r.sortingOrder).ToArray();
 
             Initialize(true);
         }
@@ -343,7 +363,10 @@ namespace Boundary.GamePlay.Enemy.Base
                     return;
             }
         }
-        
+
+        private void OnPlayerDied(EPlayerDied e) => SetComa(true);
+        private void OnPlayerRespawned(EPlayerRespawned e) => SetComa(false);
+
         #endregion
         
         private void SetToInitialState()
@@ -383,13 +406,10 @@ namespace Boundary.GamePlay.Enemy.Base
         {
             if (data.CurrentStatus == EnemyStatus.Dead)
             {
-                // TODO: For standard and combat room enemies run the death visual logic (upside down and go below the screen)
-                StateMachine.ChangeState(InitialState);
-                gameObject.SetActive(false);
-
-                DropLifeHandler();
-
-                _eventBus.Publish(new EEnemyDied(data));
+                if (_isDying) return;
+                
+                _isDying = true;
+                StartCoroutine(DeathSequence());
                 return;
             }
 
@@ -397,6 +417,29 @@ namespace Boundary.GamePlay.Enemy.Base
             {
                 _poisonCoroutine = StartCoroutine(ApplyPoisonDamageOverTime());
             }
+        }
+
+        private IEnumerator DeathSequence()
+        {
+            Animator.SetBool(AnimationStrings.isDying, true);
+
+            Rb.gravityScale = _originalGravityScale;
+            foreach (var enemyCollider in GetComponentsInChildren<Collider2D>())
+            {
+                enemyCollider.enabled = false;
+            }
+
+            yield return StartCoroutine(DeathFallEffect.Play(
+                transform, Rb, _spriteRenderers,
+                deathBounceForce, deathSortingOrderBoost, deathOffscreenViewportMargin));
+
+            StateMachine.ChangeState(InitialState);
+            gameObject.SetActive(false);
+
+            DropLifeHandler();
+            _eventBus.Publish(new EEnemyDied(data));
+
+            _isDying = false;
         }
 
         private IEnumerator ApplyPoisonDamageOverTime()
@@ -517,7 +560,26 @@ namespace Boundary.GamePlay.Enemy.Base
         public void Initialize(bool firstTime)
         {
             _poisonCoroutine = null;
+            _isDying = false;
             transform.position = _initialPosition;
+            transform.rotation = Quaternion.identity;
+
+            if (Rb) Rb.gravityScale = _originalGravityScale;
+
+            foreach (var enemyCollider in GetComponentsInChildren<Collider2D>())
+            {
+                enemyCollider.enabled = true;
+            }
+
+            if (_spriteRenderers != null)
+            {
+                for (var i = 0; i < _spriteRenderers.Length; i++)
+                {
+                    _spriteRenderers[i].sortingOrder = _originalSortingOrders[i];
+                }
+                // Animator.SetBool(AnimationStrings.isDying, false);
+            }
+
             SetToInitialState();
             gameObject.SetActive(true);
 

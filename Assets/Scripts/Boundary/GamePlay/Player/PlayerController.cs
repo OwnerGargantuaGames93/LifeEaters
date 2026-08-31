@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
+using System.Linq;
 using Boundary.Camera;
+using Boundary.GamePlay;
 using Boundary.Commands;
 using Boundary.GamePlay.Enemy.Base;
 using Boundary.GamePlay.Projectile;
@@ -32,6 +34,7 @@ namespace Boundary.Player
         [SerializeField] private float runSpeed = 12f;
         [SerializeField] private float acceleration = 1.4f;
         [SerializeField] private float deceleration = 3f;
+        [SerializeField] private float movementAnimationStopThreshold = 0.15f;
         [SerializeField] private float dashingPower = 22f;
         [SerializeField] private float dashingTime = 0.18f;
         private PlayerMovementState _movementState = PlayerMovementState.Idle;
@@ -40,13 +43,11 @@ namespace Boundary.Player
         #region Controls
         private float _horizontalMoveInput;
         private float _verticalMoveInput;
-        private bool _runReleased;
         private bool _runIsPressed;
         private bool _crouchIsPressed;
         private bool _crouchWasPressedThisFrame;
         private bool _jumpWasPressedThisFrame;
         private bool _jumpIsPressed;
-        private bool _jumpWasReleasedThisFrame;
         private bool _dashWasPressedThisFrame;
         private bool _grabThrow;
         private bool _release;
@@ -80,7 +81,16 @@ namespace Boundary.Player
         private bool _onLadder = false;
         #endregion
 
-        // TODO: Use jump state instead
+        #region Crouching
+        // Fraction of the standing collider's height used while crouched (shrinks from the top,
+        // feet stay planted). Sprite is drawn at half its standing height when crouching.
+        [SerializeField] private float crouchColliderHeightMultiplier = 0.5f;
+        private Vector2 _standingColliderSize;
+        private Vector2 _standingColliderOffset;
+        private Vector2 _hitBoxColliderSize;
+        private Vector2 _hitBoxColliderOffset;
+        #endregion
+        
         #region Falling Check
         [SerializeField] private bool isFalling = false;
         private float _prevYPosition = 0f;
@@ -101,6 +111,16 @@ namespace Boundary.Player
         private Vector3 _respawnPosition;
         #endregion
 
+        #region Death Sequence
+        [SerializeField] private float deathBounceForce = 12f;
+        [SerializeField] private int deathSortingOrderBoost = 1000;
+        [SerializeField] private float deathOffscreenViewportMargin = 0.15f;
+        [SerializeField] private float delayAfterOffscreenBeforeNextStep = 0.5f;
+        private SpriteRenderer[] _spriteRenderers;
+        private int[] _originalSortingOrders;
+        private bool _isDying;
+        #endregion
+
         #region Pits
         [SerializeField] private LayerMask pitLayer;
         [SerializeField] private float groundPitCheckExtraHeight = 0.25f;
@@ -118,7 +138,9 @@ namespace Boundary.Player
         [SerializeField] private BoxCollider2D standingCollider;
         private CinemachineImpulseSource _impulseSource;
         [SerializeField] private VisualTip visualTipPrefab;
+        [SerializeField] private CapsuleCollider2D hitBoxCollider;
         public Canvas Canvas { get; private set; }
+        
         #endregion
 
         private void Awake()
@@ -135,6 +157,7 @@ namespace Boundary.Player
         private void SubscribeToEvents()
         {
             _eventBus.Subscribe<ELifeLost>(OnLifeLost);
+            _eventBus.Subscribe<EGameOver>(OnGameOver);
             _eventBus.Subscribe<EEnemyStompedEvent>(OnEnemyStomped);
             _eventBus.Subscribe<EPlayerReceiveContactDamageByEnemy>(OnEnemyContactDamage);
             _eventBus.Subscribe<EEnemyBulletHitPlayer>(OnEnemyBulletHitPlayer);
@@ -149,6 +172,7 @@ namespace Boundary.Player
         private void UnsubscribeFromEvents()
         {
             _eventBus.Unsubscribe<ELifeLost>(OnLifeLost);
+            _eventBus.Unsubscribe<EGameOver>(OnGameOver);
             _eventBus.Unsubscribe<EEnemyStompedEvent>(OnEnemyStomped);
             _eventBus.Unsubscribe<EPlayerReceiveContactDamageByEnemy>(OnEnemyContactDamage);
             _eventBus.Unsubscribe<EEnemyBulletHitPlayer>(OnEnemyBulletHitPlayer);
@@ -167,12 +191,19 @@ namespace Boundary.Player
             _touchingDirections = GetComponent<TouchingDirections>();
             _impulseSource = GetComponent<CinemachineImpulseSource>();
 
+            _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+            _originalSortingOrders = _spriteRenderers.Select(r => r.sortingOrder).ToArray();
+
+            _standingColliderSize = standingCollider.size;
+            _standingColliderOffset = standingCollider.offset;
+            _hitBoxColliderSize = hitBoxCollider.size;
+            _hitBoxColliderOffset = hitBoxCollider.offset;
+
             _prevYPosition = transform.position.y;
         }
 
         private void CaptureControls()
         {
-            _runReleased = UserInput.instance.RunReleased();
             _runIsPressed = UserInput.instance.RunIsPressed();
 
             _crouchIsPressed = UserInput.instance.CrouchIsPressed();
@@ -180,7 +211,6 @@ namespace Boundary.Player
 
             _jumpWasPressedThisFrame = UserInput.instance.JumpWasPressedThisFrame();
             _jumpIsPressed = UserInput.instance.JumpIsPressed();
-            _jumpWasReleasedThisFrame = UserInput.instance.JumpWasReleasedThisFrame();
 
             _dashWasPressedThisFrame = UserInput.instance.DashWasPressedThisFrame();
 
@@ -193,8 +223,10 @@ namespace Boundary.Player
 
         private void Update()
         {
+            if (_isDying) return;
+
             CaptureControls();
-            
+
             HandleMovementState();
             HandleWallSlidingState();
             HandleJumpState();
@@ -215,6 +247,8 @@ namespace Boundary.Player
 
         private void FixedUpdate()
         {
+            if (_isDying) return;
+
             Move();
             WallSlide();
             Jump();
@@ -229,9 +263,14 @@ namespace Boundary.Player
 
         private void OnLifeLost(ELifeLost e)
         {
-            StartCoroutine(Respawn());
+            StartCoroutine(DeathSequence(respawnAfter: true));
         }
-        
+
+        private void OnGameOver(EGameOver e)
+        {
+            StartCoroutine(DeathSequence(respawnAfter: false));
+        }
+
         private void OnTeleportPlayerToPosition(ETeleportPlayerToPosition e)
         { 
             _respawnPosition = e.TargetPosition;
@@ -291,6 +330,14 @@ namespace Boundary.Player
                     }
                     return;
                 }
+                case PlayerMovementState.Crouching:
+                {
+                    if (!_crouchIsPressed || !_touchingDirections.IsGrounded || _grabbedObject is not null)
+                    {
+                        SetMovementState(PlayerMovementState.Idle);
+                    }
+                    return;
+                }
                 case PlayerMovementState.Idle:
                 case PlayerMovementState.Walking:
                 case PlayerMovementState.Running:
@@ -300,7 +347,16 @@ namespace Boundary.Player
                         SetMovementState(PlayerMovementState.Climbing);
                         return;
                     }
-                    
+
+                    // Crouch always stops the player instantly, even mid-run with the movement key
+                    // still held - responsiveness beats letting the run finish decelerating first.
+                    if (_crouchIsPressed && _touchingDirections.IsGrounded && _grabbedObject is null)
+                    {
+                        SetMovementState(PlayerMovementState.Crouching);
+                        _cPlayer.linearVelocity = new Vector2(0f, _cPlayer.linearVelocity.y);
+                        return;
+                    }
+
                     if (Mathf.Abs(_horizontalMoveInput) > 0.01f)
                     {
                         if (_runIsPressed && hasRunTalent)
@@ -340,6 +396,9 @@ namespace Boundary.Player
                     _cPlayer.linearVelocity = Vector2.zero;
                     return;
                 case PlayerMovementState.Dashing:
+                    return;
+                case PlayerMovementState.Crouching:
+                    _cPlayer.linearVelocity = new Vector2(0f, _cPlayer.linearVelocity.y);
                     return;
             }
 
@@ -385,9 +444,43 @@ namespace Boundary.Player
         
         private void SetMovementState(PlayerMovementState newState)
         {
+            if (newState == PlayerMovementState.Crouching && _movementState != PlayerMovementState.Crouching)
+            {
+                ApplyCrouchingCollider();
+            }
+            else if (newState != PlayerMovementState.Crouching && _movementState == PlayerMovementState.Crouching)
+            {
+                RestoreStandingCollider();
+            }
+
             _movementState = newState;
         }
-        
+
+        // Shrinks a collider's height by crouchColliderHeightMultiplier, keeping its bottom edge
+        // fixed in place (the player ducks from the head down, feet stay planted).
+        private static (Vector2 size, Vector2 offset) CrouchedColliderShape(Vector2 standingSize, Vector2 standingOffset, float heightMultiplier)
+        {
+            var crouchedHeight = standingSize.y * heightMultiplier;
+            var offsetShift = (standingSize.y - crouchedHeight) * 0.5f;
+            return (new Vector2(standingSize.x, crouchedHeight), new Vector2(standingOffset.x, standingOffset.y - offsetShift));
+        }
+
+        private void ApplyCrouchingCollider()
+        {
+            (standingCollider.size, standingCollider.offset) =
+                CrouchedColliderShape(_standingColliderSize, _standingColliderOffset, crouchColliderHeightMultiplier);
+            (hitBoxCollider.size, hitBoxCollider.offset) =
+                CrouchedColliderShape(_hitBoxColliderSize, _hitBoxColliderOffset, crouchColliderHeightMultiplier);
+        }
+
+        private void RestoreStandingCollider()
+        {
+            standingCollider.size = _standingColliderSize;
+            standingCollider.offset = _standingColliderOffset;
+            hitBoxCollider.size = _hitBoxColliderSize;
+            hitBoxCollider.offset = _hitBoxColliderOffset;
+        }
+
         #endregion
 
         #region Wall Sliding
@@ -437,8 +530,8 @@ namespace Boundary.Player
             var jumpAvailable = _player.CanJump;
             var doubleJumpAvailable = _player.CanDoubleJump;
             
-            // Stop here if movement is frozen
-            if (_movementState is PlayerMovementState.Freeze)
+            // Stop here if movement is frozen, or ducking (no crouch-jump)
+            if (_movementState is PlayerMovementState.Freeze or PlayerMovementState.Crouching)
             {
                 return;
             }
@@ -664,6 +757,13 @@ namespace Boundary.Player
         
         private void AttackReceivedFeedback(Vector2 enemyPosition)
         {
+            // Getting hit interrupts crouching (restores the standing collider) so the knockback
+            // below isn't immediately zeroed out by Move()'s crouch handling.
+            if (_movementState == PlayerMovementState.Crouching)
+            {
+                SetMovementState(PlayerMovementState.Idle);
+            }
+
             CameraShake.instance.ExecCameraShake(_impulseSource);
             
             if (enemyPosition.x > transform.position.x)
@@ -696,6 +796,56 @@ namespace Boundary.Player
             _eventBus.Publish(new EPlayerInvincibilityChanged(false));
             Physics2D.IgnoreLayerCollision(Constants.PlayerHitBoxLayerNumber, Constants.EnemyLayerNumber, false);
             Physics2D.IgnoreLayerCollision(Constants.PlayerHitBoxLayerNumber, Constants.EnemyBulletLayerNumber, false);
+        }
+
+        #endregion
+
+        #region Death Sequence
+
+        private IEnumerator DeathSequence(bool respawnAfter)
+        {
+            if (_isDying) yield break;
+            _isDying = true; // also gates Update()/FixedUpdate() so nothing fights the bounce/fall physics below
+
+            DisableAllCollisions(true);
+            _eventBus.Publish(new EPlayerDeathSequenceStarted());
+            _eventBus.Publish(new EPlayerDied());
+
+            _cPlayer.gravityScale = OriginalGravityScale;
+            yield return StartCoroutine(DeathFallEffect.Play(
+                transform, _cPlayer, _spriteRenderers,
+                deathBounceForce, deathSortingOrderBoost, deathOffscreenViewportMargin));
+
+            yield return new WaitForSeconds(delayAfterOffscreenBeforeNextStep);
+
+            transform.rotation = Quaternion.identity;
+            for (var i = 0; i < _spriteRenderers.Length; i++)
+            {
+                _spriteRenderers[i].sortingOrder = _originalSortingOrders[i];
+            }
+
+            DisableAllCollisions(false);
+            SetMovementState(PlayerMovementState.Idle);
+            _isDying = false;
+            _eventBus.Publish(new EPlayerDeathSequenceEnded());
+
+            if (respawnAfter)
+            {
+                yield return StartCoroutine(Respawn());
+                _eventBus.Publish(new EPlayerRespawned());
+            }
+            else
+            {
+                _eventBus.Publish(new EGameOverSequenceFinished());
+            }
+        }
+
+        private void DisableAllCollisions(bool disable)
+        {
+            foreach (var playerCollider in GetComponentsInChildren<Collider2D>())
+            {
+                playerCollider.enabled = !disable;
+            }
         }
 
         #endregion
@@ -841,6 +991,35 @@ namespace Boundary.Player
 
         #endregion
 
+        #region Animation Bridge Properties
+        public bool IsWalking => _movementState == PlayerMovementState.Walking;
+        public bool IsRunning => _movementState == PlayerMovementState.Running;
+        public bool IsClimbing => _movementState == PlayerMovementState.Climbing;
+        public bool IsDashing => _movementState == PlayerMovementState.Dashing;
+        public bool IsClimbingMoving => IsClimbing && Mathf.Abs(_verticalMoveInput) > 0.01f;
+        public bool IsWallSliding => _wallSlideState == PlayerWallSlideState.Sliding;
+
+        // Based on actual vertical velocity (not the jump state machine), so it also covers
+        // the enemy-stomp bounce (OnEnemyStomped), which never touches PlayerJumpState.
+        public bool IsGoingUp => !_touchingDirections.IsGrounded && _cPlayer.linearVelocity.y > 0.01f;
+
+        public bool IsCrouching => _movementState == PlayerMovementState.Crouching;
+
+        // True while the rigidbody still has horizontal velocity, even after input is released
+        // and the movement state already fell back to Idle - keeps the run animation playing
+        // (slowing down via RunAnimSpeedMultiplier) through the deceleration instead of cutting to Idle.
+        public bool IsPhysicallyMoving => Mathf.Abs(_cPlayer.linearVelocity.x) > movementAnimationStopThreshold;
+
+        public float RunAnimSpeedMultiplier
+        {
+            get
+            {
+                var maxSpeed = IsRunning ? runSpeed : speed;
+                return Mathf.Clamp01(Mathf.Abs(_cPlayer.linearVelocity.x) / maxSpeed);
+            }
+        }
+        #endregion
+
         #region External Methods
         public static void MoveToPosition(Vector3 position)
         {
@@ -976,6 +1155,9 @@ namespace Boundary.Player
                 case PlayerMovementState.Climbing:
                     Debug.Log(prefix + "Climbing");
                     break;
+                case PlayerMovementState.Crouching:
+                    Debug.Log(prefix + "Crouching");
+                    break;
                 default:
                     Debug.LogError(prefix + "Unknown PlayerMovementState: " + _movementState);
                     break;
@@ -992,6 +1174,7 @@ namespace Boundary.Player
         Freeze,
         Dashing,
         Climbing,
+        Crouching,
         // Swim,
     }
 
@@ -1027,6 +1210,12 @@ namespace Boundary.Player
     }
     
     public struct ETeleportToLastStatue {}
+
+    public struct EGameOverSequenceFinished {}
+    public struct EPlayerDeathSequenceStarted {}
+    public struct EPlayerDeathSequenceEnded {}
+    public struct EPlayerDied {}
+    public struct EPlayerRespawned {}
 
     #endregion
 }

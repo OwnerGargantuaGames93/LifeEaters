@@ -140,6 +140,11 @@ namespace Boundary.Player
             _grabbedObject.transform.SetParent(transform);
 
             _avoidImmediateReleasing = air;
+
+            if (isPitObject)
+            {
+                _eventBus.Publish(new EPlayerGrabbedPitObject());
+            }
         }
 
         public void GrabObject(PitObjectData objectData)
@@ -161,6 +166,8 @@ namespace Boundary.Player
             _grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             _grabbedObject.transform.SetParent(null);
             _grabbedObject.GetComponent<Rigidbody2D>().AddForce(ReleaseGestureForce * _playerDirection, ForceMode2D.Impulse);
+
+            _eventBus.Publish(new EPlayerObjectThrown());
         }
     
         /**
@@ -172,6 +179,8 @@ namespace Boundary.Player
             _grabbedObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             _grabbedObject.transform.SetParent(null);
             _grabbedObject.GetComponent<Rigidbody2D>().AddForce(PutDownForce * _playerDirection, ForceMode2D.Impulse);
+
+            _eventBus.Publish(new EPlayerObjectPutDown());
         }
 
         /**
@@ -225,13 +234,21 @@ namespace Boundary.Player
         {
             LooseObject();
         }
-        
+
         private void OnPlayerReceiveBulletDamage(EEnemyBulletHitPlayer e)
         {
             LooseObject();
         }
-        
+
 
         #endregion
     }
+
+    #region Events
+
+    public struct EPlayerObjectThrown {}
+    public struct EPlayerObjectPutDown {}
+    public struct EPlayerGrabbedPitObject {}
+
+    #endregion
 }
