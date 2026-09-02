@@ -1,4 +1,3 @@
-using Boundary.Pit;
 using Cinemachine;
 using Infra.EventBus;
 using UnityEngine;
@@ -13,7 +12,7 @@ namespace Boundary.Camera
     public class RoomCamera : MonoBehaviour
     {
         private IEventBus _eventBus;
-        
+
         public GameObject virtualCamera;
 
         private GameObject _player;

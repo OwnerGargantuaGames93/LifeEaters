@@ -60,7 +60,10 @@ namespace Infra.SceneHandler
                 SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
             }
             
-            PlayerController.MoveToPosition(data.initialPosition);
+            // Route through the same respawn flow as a statue teleport, instead of a raw
+            // transform set, so velocity resets, the camera warps instantly and every system
+            // that reacts to a teleport (e.g. ParallaxLayer) gets its EPlayerTeleported hook.
+            _eventBus.Publish(new ETeleportPlayerToPosition(data.initialPosition));
         }
 
         private void OnPlayerEnterScene(EPlayerEnterScene e)

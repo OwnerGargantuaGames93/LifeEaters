@@ -860,8 +860,33 @@ namespace Boundary.Player
             // If no respawn position is set, the player will respawn in the nearest respawn point (very rare case)
             // Set velocity to zero before respawning in order to avoid carry momentum from previous position
             _cPlayer.linearVelocity = Vector2.zero;
+
+            var previousPosition = transform.position;
             transform.position = _respawnPosition;
+            // Cinemachine would otherwise pan smoothly toward the new position over several
+            // frames, which also drags the parallax background along at the wrong rate. Warp
+            // it so the camera cuts instantly, same frame as the teleport.
+            WarpCameraToPlayer(transform.position - previousPosition);
+
+            _eventBus.Publish(new EPlayerTeleported());
             StartCoroutine(RespawnCooldown());
+        }
+
+        private void WarpCameraToPlayer(Vector3 positionDelta)
+        {
+            var mainCamera = UnityEngine.Camera.main;
+            if (mainCamera == null)
+            {
+                return;
+            }
+
+            var brain = mainCamera.GetComponent<CinemachineBrain>();
+            if (brain == null || brain.ActiveVirtualCamera is not CinemachineVirtualCameraBase activeCamera)
+            {
+                return;
+            }
+
+            activeCamera.OnTargetObjectWarped(transform, positionDelta);
         }
 
         private IEnumerator RespawnCooldown()
@@ -1021,19 +1046,6 @@ namespace Boundary.Player
         #endregion
 
         #region External Methods
-        public static void MoveToPosition(Vector3 position)
-        {
-            var playerGameObject = GameObject.FindGameObjectWithTag(Constants.PlayerTag);
-            if (playerGameObject)
-            {
-                playerGameObject.transform.SetPositionAndRotation(position, Quaternion.identity);
-            }
-            else
-            {
-                Debug.LogError("Player not found!");
-            }
-        }
-        
         private void BlockPlayerMovement(float durationInSeconds)
         {
             _movementState = PlayerMovementState.Freeze;
@@ -1216,6 +1228,7 @@ namespace Boundary.Player
     public struct EPlayerDeathSequenceEnded {}
     public struct EPlayerDied {}
     public struct EPlayerRespawned {}
+    public struct EPlayerTeleported {}
 
     #endregion
 }

@@ -173,6 +173,7 @@
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/EnemyTypes/Worm.cs" />
     <Compile Include="Assets/Scripts/Infra/TilemapController/TilemapController.cs" />
     <Compile Include="Assets/Scripts/Utils/Functions.cs" />
+    <Compile Include="Assets/Scripts/Boundary/Camera/ParallaxLayer.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/WeakAreas/JumpWeakArea.cs" />
     <Compile Include="Assets/Scripts/Infra/SceneHandler/ISceneHandler.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Player/PlayerController.cs" />
