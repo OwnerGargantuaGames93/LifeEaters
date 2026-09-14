@@ -23,8 +23,10 @@ namespace Boundary.Camera
         private bool _cameraActive;
 
         [SerializeField] private string roomName;
-        
+
+        private CinemachineFramingTransposer _framingTransposer;
         [SerializeField] public bool shouldCameraFollowPlayer = true;
+        [SerializeField] public float deadZoneHeight;
 
         private void Awake()
         {
@@ -45,8 +47,17 @@ namespace Boundary.Camera
 
             virtualCamera.GetComponent<CinemachineVirtualCamera>()
                 .AddCinemachineComponent<CinemachineFramingTransposer>();
+            _framingTransposer = virtualCamera.GetComponent<CinemachineVirtualCamera>()
+                .GetCinemachineComponent<CinemachineFramingTransposer>();
             virtualCamera.GetComponent<CinemachineVirtualCamera>().Follow = _player.transform;
             virtualCamera.GetComponent<CinemachineVirtualCamera>().LookAt = _player.transform;
+            
+            
+            if (_framingTransposer != null)
+            {
+                // Set frame transposer custom screen height
+                _framingTransposer.m_DeadZoneHeight = deadZoneHeight; 
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
