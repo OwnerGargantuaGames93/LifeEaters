@@ -49,6 +49,9 @@ namespace Infra.SceneHandler
 
             _currentPlayerScene = data.sceneName;
             
+            // TODO: Verify if is correct to place this event shot here!!! 
+            _eventBus.Publish(new EPlayerSceneChanged(_currentPlayerScene));
+
             Debug.Log("[SceneHandler] Game loaded. Player scene: " + _currentPlayerScene);
             
             var requiredScenes = _sceneMountConfig.GetRequiredScenes(_currentPlayerScene);
@@ -74,6 +77,7 @@ namespace Infra.SceneHandler
             }
 
             _currentPlayerScene = e.SceneName;
+            _eventBus.Publish(new EPlayerSceneChanged(_currentPlayerScene));
             var requiredScenes = _sceneMountConfig.GetRequiredScenes(_currentPlayerScene);
             
             Debug.Log($"[SceneHandler] Loading scenes for player scene '{_currentPlayerScene}': {string.Join(", ", requiredScenes)}");
@@ -127,8 +131,18 @@ namespace Infra.SceneHandler
     public struct EPlayerEnterScene
     {
         public readonly string SceneName;
-        
+
         public EPlayerEnterScene(string sceneName)
+        {
+            SceneName = sceneName;
+        }
+    }
+
+    public struct EPlayerSceneChanged
+    {
+        public readonly string SceneName;
+
+        public EPlayerSceneChanged(string sceneName)
         {
             SceneName = sceneName;
         }

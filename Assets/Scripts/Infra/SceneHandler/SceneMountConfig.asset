@@ -16,30 +16,31 @@ MonoBehaviour:
   - scene: TestRoom
     requiredScenes:
     - TestRoom
+    backgroundId: 
   - scene: -1.0_roahr_sect_western_outpost
     requiredScenes:
     - -1.0_roahr_sect_western_outpost
     - -1.1_sewers
+    backgroundId: 
   - scene: -1.1_sewers
     requiredScenes:
     - -1.0_roahr_sect_western_outpost
     - -1.1_sewers
-  - scene: 1.3_clay_crusher
-    requiredScenes:
-    - 1.1_parent_house__clay_crusher
-    - 1.3_clay_crusher
-    - -1.0_roahr_sect_western_outpost
+    backgroundId: 
   - scene: 1.1_parent_house
     requiredScenes:
     - 1.1_parent_house
     - 1.1_parent_house__clay_crusher
     - TestRoom
+    backgroundId: parent_house
   - scene: 1.1_parent_house__clay_crusher
     requiredScenes:
     - 1.1_parent_house
     - 1.1_parent_house__clay_crusher
+    backgroundId: parent_house
   - scene: 1.3_clay_crusher
     requiredScenes:
     - 1.1_parent_house__clay_crusher
     - 1.3_clay_crusher
     - -1.0_roahr_sect_western_outpost
+    backgroundId: parent_house

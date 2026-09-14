@@ -6,11 +6,12 @@ namespace Boundary.Camera
 {
     /// <summary>
     /// Moves this layer relative to the main camera to fake depth (parallax scrolling).
-    /// Lives as a single persistent scene-level object rather than being toggled per room,
-    /// so its baseline is only ever established once. A hard teleport (statue, etc.) can
-    /// land the camera far from that baseline - too far for the parallax factor to track
-    /// without leaving a gap - so on EPlayerTeleported this snaps straight onto the camera's
-    /// current position instead, then resumes normal factor-based tracking from there.
+    /// Backgrounds live once in the persistent GamePlay scene and are shown/hidden per room by
+    /// BackgroundManager rather than being loaded/unloaded with room scenes, so this layer can
+    /// sit disabled for an arbitrarily long time while the camera moves anywhere else. Every
+    /// enable - the very first one, a teleport re-enable, or BackgroundManager re-showing this
+    /// background - is treated the same way as EPlayerTeleported: snap straight onto the
+    /// camera's current position next LateUpdate, then resume normal factor-based tracking.
     /// </summary>
     public class ParallaxLayer : MonoBehaviour
     {
@@ -28,15 +29,15 @@ namespace Boundary.Camera
         private void OnEnable()
         {
             _camera = UnityEngine.Camera.main;
-            _startPosition = transform.position;
-
-            if (_camera != null)
-            {
-                _startCameraPosition = _camera.transform.position;
-            }
-
             _eventBus = GameContext.Instance.EventBus;
             _eventBus.Subscribe<EPlayerTeleported>(OnPlayerTeleported);
+
+            // Don't trust a baseline computed from transform.position here: while this layer was
+            // disabled the camera could have moved arbitrarily far away (room streaming, a load,
+            // BackgroundManager hiding a different background). Reuse the exact same "snap once,
+            // then resume tracking" path already used for EPlayerTeleported instead of a second,
+            // parallel positioning mechanism.
+            _pendingSnapToCamera = true;
         }
 
         private void OnDisable()

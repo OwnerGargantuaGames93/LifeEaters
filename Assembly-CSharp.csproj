@@ -229,6 +229,7 @@
     <Compile Include="Assets/Scripts/Boundary/UI/GameMenu/Status/TalentItemButton.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Chase/EnemyChaseDirectToPlayerUntilWallSO.cs" />
     <Compile Include="Assets/Scripts/Data/Database/Sources/Consumables/ConsumableDatabase.cs" />
+    <Compile Include="Assets/Scripts/Boundary/Camera/BackgroundManager.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Projectile/ProjectileType.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/Shop/ShopPanelUI.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/PlayerStatus/PlayerStatusPanelUI.cs" />
