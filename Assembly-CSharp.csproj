@@ -74,6 +74,7 @@
     <Compile Include="Assets/Scripts/Boundary/Camera/CombatRoom.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/StatueMenu/EquipEssenceMenu/EquippedEssenceMenuButton.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/GameMenu/Inventory/InventoryTabButton.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Idle/EnemyIdleWormMovementSO.cs" />
     <Compile Include="Assets/Scripts/Control/Shop/IShopModel.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Enemy/EnemyData.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Dormant/EnemyDormantAttachedToCeilingSO.cs" />

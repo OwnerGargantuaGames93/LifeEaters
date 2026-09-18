@@ -19,7 +19,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Idle
         }
 
         public virtual void DoEnterLogic() {
-            if (Enemy.IdleAnimationName != null)
+            if (!string.IsNullOrEmpty(Enemy.IdleAnimationName))
             {
                 Enemy.Animator.Play(Enemy.IdleAnimationName);    
             }
