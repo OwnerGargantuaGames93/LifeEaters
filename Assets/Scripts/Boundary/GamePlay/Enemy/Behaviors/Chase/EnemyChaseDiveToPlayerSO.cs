@@ -7,6 +7,10 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
     [CreateAssetMenu(fileName = "Melee Attack Dive To Player", menuName = "Enemies/Behaviors/Melee Attack/Enemy Dive To Player")]
     public class EnemyChaseDiveToPlayerSO: EnemyChaseSOBase
     {
+        private const string StartStopChaseAnimationName = "start_stop_chase";
+        private const string DiveAnimationName = "chase";
+        private const string IdleAnimationName = "idle";
+        
         private enum DiveState
         {
             Preparing,
@@ -33,6 +37,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
 
             _diveState = DiveState.Preparing;
             _stateTimer = divePreparationTime;
+            
+            Enemy.Animator.Play(StartStopChaseAnimationName);
         }
 
         public override void DoExitLogic()
@@ -72,6 +78,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
                     _diveState = DiveState.Diving;
                     _hasAppliedImpulse = true;
                     _stateTimer = GroundCheckDelay;
+                    
+                    Enemy.Animator.Play(DiveAnimationName);
+                    
                     break;
                 }
                 case DiveState.Diving:
@@ -81,6 +90,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
                         _diveState = DiveState.WaitingAfterDive;
                         _stateTimer = waitAfterDive;
                         Enemy.Rb.linearVelocity = Vector2.zero;
+                        Enemy.Animator.Play(IdleAnimationName);
                     }
                     break;
                 }

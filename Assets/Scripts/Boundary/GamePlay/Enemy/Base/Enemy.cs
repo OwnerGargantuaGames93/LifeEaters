@@ -54,6 +54,14 @@ namespace Boundary.GamePlay.Enemy.Base
         [field: SerializeField] public DamageOutput contactDamageOutput;
         #endregion
         
+        #region Animations
+        [field: SerializeField] public string IdleAnimationName { get; set; }
+        [field: SerializeField] public string SleepingAnimationName { get; set; }
+        [field: SerializeField] public string DormantAnimationName { get; set; }
+        [field: SerializeField] public string ChaseAnimationName { get; set; }
+        [field: SerializeField] public string RangedAttackAnimationName { get; set; }
+        #endregion
+
         #region Components
         public Rigidbody2D Rb { get; private set; }
         public TouchingDirections TouchingDirections { get; private set; }
