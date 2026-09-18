@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 namespace Boundary.GamePlay.Enemy.Behaviors.Idle
 {
@@ -10,6 +11,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Idle
             Moving,
             Stopping
         }
+        
+        private const string WalkAnimationName = "walk";
+        private const string IdleAnimationName = "idle";
         
         [SerializeField] private float movementSpeed = 0.5f;
         [SerializeField] private float minTurnDelay = 0.5f;
@@ -49,6 +53,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Idle
                         _patrolState = PatrolState.Stopping;
                         _stateTimer = Random.Range(minStopBeforeTurnDelay, maxStopBeforeTurnDelay);
                         Enemy.Rb.linearVelocity = Vector2.zero;
+                        UpdateAnimation();
                         break;
                     }
                     case PatrolState.Stopping:
@@ -56,9 +61,23 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Idle
                         Enemy.Turn();
                         _patrolState = PatrolState.Moving;
                         _stateTimer = Random.Range(minTurnDelay, maxTurnDelay);
+                        UpdateAnimation();
                         break;
                     }
                 }
+            }
+        }
+
+        private void UpdateAnimation()
+        {
+            switch (_patrolState)
+            {
+                case PatrolState.Moving:
+                    Enemy.Animator.Play(WalkAnimationName);
+                    break;
+                case PatrolState.Stopping:
+                    Enemy.Animator.Play(IdleAnimationName);
+                    break;
             }
         }
 
