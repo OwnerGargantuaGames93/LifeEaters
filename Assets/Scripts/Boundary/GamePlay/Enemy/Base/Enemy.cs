@@ -148,6 +148,7 @@ namespace Boundary.GamePlay.Enemy.Base
         } 
 
         private WalkDirectionEnum _walkDirection;
+        private WalkDirectionEnum _initialWalkDirection;
         public WalkDirectionEnum WalkDirection
         {
             get => _walkDirection;
@@ -165,6 +166,27 @@ namespace Boundary.GamePlay.Enemy.Base
         }
 
         public Vector2 walkDirectionVector;
+
+        /// <summary>
+        /// Flips ONLY the sprite rendering (SpriteRenderer.flipX) to face the given direction,
+        /// without touching transform.localScale. Unlike WalkDirection, this never moves child
+        /// colliders/detection zones (aggro, melee/ranged attack checks, etc.) — use this for
+        /// enemies that need to visually face the player while staying physically still.
+        /// The "unflipped" reference is the enemy's initial spawn orientation (_initialWalkDirection),
+        /// not a hardcoded left/right, since some prefabs are placed with a negative localScale.x by default.
+        /// </summary>
+        public void SetSpriteFacing(WalkDirectionEnum direction)
+        {
+            if (_spriteRenderers == null)
+                _spriteRenderers = GetComponentsInChildren<SpriteRenderer>(true);
+
+            var shouldFlip = direction != _initialWalkDirection;
+            foreach (var spriteRenderer in _spriteRenderers)
+            {
+                if (spriteRenderer != null)
+                    spriteRenderer.flipX = shouldFlip;
+            }
+        }
 
         #endregion
 
@@ -225,7 +247,9 @@ namespace Boundary.GamePlay.Enemy.Base
                 _walkDirection = WalkDirectionEnum.Left;
                 walkDirectionVector = Vector2.left;
             }
-        
+
+            _initialWalkDirection = _walkDirection;
+
             SubscribeToEvents();
         }
         
