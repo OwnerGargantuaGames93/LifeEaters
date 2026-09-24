@@ -7,6 +7,8 @@ namespace Boundary.Enemy.Behaviors.Idle
     [CreateAssetMenu(fileName = "Popjue Bear Idle State", menuName = "Enemies/Behaviors/Idle/Popjue Bear Idle State")]
     public class PopjueBearIdleStateSO : EnemyIdleLookLeftAndRightSO
     {
+        private static readonly string IdleAnimationName = "idle";
+        
         [SerializeField] private float goToSleepAfterSeconds = 10f;
         private float _sleepTimer;
 
@@ -14,6 +16,11 @@ namespace Boundary.Enemy.Behaviors.Idle
         {
             base.DoEnterLogic();
             _sleepTimer = 0f;
+            
+            if (Enemy.Animator != null)
+            {
+                Enemy.Animator.Play(IdleAnimationName);
+            }
         }
 
         public override void DoExitLogic()

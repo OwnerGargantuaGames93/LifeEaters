@@ -589,6 +589,18 @@ namespace Boundary.GamePlay.Enemy.Base
             turnWasPerformed = true;
         }
 
+        public void TurnToDirectionIfNeeded(float xDirection)
+        {
+            switch (xDirection)
+            {
+                // flip the enemy in the right direction
+                case > 0 when WalkDirection == WalkDirectionEnum.Left:
+                case < 0 when WalkDirection == WalkDirectionEnum.Right:
+                    Turn();
+                    break;
+            }
+        }
+
         public void Initialize(bool firstTime)
         {
             _poisonCoroutine = null;

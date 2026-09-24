@@ -8,6 +8,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Dormant
     {
         [SerializeField] private float movementSpeed = 2f;
         [SerializeField] private BaseEnemy.WalkDirectionEnum sleepingSide = BaseEnemy.WalkDirectionEnum.Right;
+        [SerializeField] private string movementAnimationName = "walk";
+        [SerializeField] private string sleepAnimationName = "sleep";
         
         private SearchState _searchState = SearchState.MovingToPosition;
         
@@ -27,10 +29,32 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Dormant
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
-
+            
+            ChangeSearchStateIfNeeded();
+        }
+        
+        private void ChangeSearchStateIfNeeded()
+        {
             var isOnSleepPosition = Vector2.Distance(Enemy.transform.position, Enemy.sleepPosition.transform.position) < 2f;
             
-            _searchState = !isOnSleepPosition ? SearchState.MovingToPosition : SearchState.Sleeping;
+            if (isOnSleepPosition && _searchState != SearchState.Sleeping)
+            {
+                _searchState = SearchState.Sleeping;
+                
+                if (Enemy.Animator != null)
+                {
+                    Enemy.Animator.Play(sleepAnimationName);
+                }
+            }
+            else if (!isOnSleepPosition && _searchState != SearchState.MovingToPosition)
+            {
+                _searchState = SearchState.MovingToPosition;
+                
+                if (Enemy.Animator != null)
+                {
+                    Enemy.Animator.Play(movementAnimationName);
+                }
+            }
         }
 
         public override void DoPhysicsLogic()
@@ -43,6 +67,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Dormant
                 {
                     var direction = (Enemy.sleepPosition.transform.position - Enemy.transform.position).normalized;
                     direction = new Vector2(direction.x, 0);
+                    
+                    Enemy.TurnToDirectionIfNeeded(direction.x);
+                    
                     Enemy.Rb.linearVelocity = direction * movementSpeed;
                     break;
                 }
