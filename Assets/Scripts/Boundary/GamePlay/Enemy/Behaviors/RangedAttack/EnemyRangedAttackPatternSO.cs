@@ -1,3 +1,4 @@
+using Boundary.GamePlay.Enemy.Base;
 using Boundary.GamePlay.Enemy.Behaviors.Chase;
 using Boundary.GamePlay.Enemy.Behaviors.RangedAttack.Patterns;
 using Boundary.GamePlay.Projectile; // EnemyRangedAttackSOBase lives here
@@ -33,6 +34,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
         
         [Header("Optional — if true, will be a cooldown state after firing, otherwise will go to IdleState")]
         [SerializeField] private bool goToCooldownAfterFiring = true;
+        
+        [Header("Optional - always looking player while shooting")]
+        [SerializeField] private bool lookAtPlayerWhileShooting = false;
 
         private bool _hasFired;
         private bool _waitingForAnim;
@@ -56,6 +60,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
             _hasFired       = false;
             _waitingForAnim = false;
 
+            FaceTowardsPlayer();
+
             if (waitForAnimation && Enemy.Animator != null)
             {
                 Enemy.Animator.Play("attack");
@@ -72,6 +78,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
             base.DoFrameUpdateLogic();
 
             if (!_waitingForAnim || _hasFired) return;
+
+            FaceTowardsPlayer();
 
             // Wait until the attack animation reaches its end
             if (Enemy.Animator != null &&
@@ -102,6 +110,25 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
         }
 
         // ─────────────────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// If lookAtPlayerWhileShooting is enabled, flips only the enemy's sprite to face the player
+        /// (via Enemy.SetSpriteFacing). Does NOT touch transform.localScale/WalkDirection, so child
+        /// colliders (aggro/attack detection zones) never move — important for stationary shooters.
+        /// </summary>
+        private void FaceTowardsPlayer()
+        {
+            if (!lookAtPlayerWhileShooting || Enemy.Player == null) return;
+
+            var directionToPlayerX = Enemy.Player.transform.position.x - Enemy.transform.position.x;
+            if (directionToPlayerX > 0)
+            {
+                Enemy.SetSpriteFacing(BaseEnemy.WalkDirectionEnum.Right);
+            } else if (directionToPlayerX < 0)
+            {
+                Enemy.SetSpriteFacing(BaseEnemy.WalkDirectionEnum.Left);
+            }
+        }
 
         private void Fire()
         {

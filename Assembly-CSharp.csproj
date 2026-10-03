@@ -74,6 +74,7 @@
     <Compile Include="Assets/Scripts/Boundary/Camera/CombatRoom.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/StatueMenu/EquipEssenceMenu/EquippedEssenceMenuButton.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/GameMenu/Inventory/InventoryTabButton.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Idle/EnemyIdleWormMovementSO.cs" />
     <Compile Include="Assets/Scripts/Control/Shop/IShopModel.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Enemy/EnemyData.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Dormant/EnemyDormantAttachedToCeilingSO.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Assets/Scripts/Boundary/Utils/TouchingDirections.cs" />
     <Compile Include="Assets/Scripts/Boundary/Camera/CameraShake.cs" />
     <Compile Include="Assets/InputActions/Controls.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/Player/PlayerAnimator.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Loot/LootData.cs" />
     <Compile Include="Assets/Scripts/Data/Database/Sources/Talents/TalentDatabase.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Cooldown/EnemyCooldownSOBase.cs" />
@@ -172,6 +174,7 @@
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/EnemyTypes/Worm.cs" />
     <Compile Include="Assets/Scripts/Infra/TilemapController/TilemapController.cs" />
     <Compile Include="Assets/Scripts/Utils/Functions.cs" />
+    <Compile Include="Assets/Scripts/Boundary/Camera/ParallaxLayer.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/WeakAreas/JumpWeakArea.cs" />
     <Compile Include="Assets/Scripts/Infra/SceneHandler/ISceneHandler.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Player/PlayerController.cs" />
@@ -199,6 +202,7 @@
     <Compile Include="Assets/Scripts/Boundary/UI/StatueMenu/LevelUpMenu/LevelUpUIPanel.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Interactable/Elevators/AToBMovingPlatform.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Shops/Shop.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/DeathFallEffect.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/StatueMenu/EquipEssenceMenu/AvailableEssenceMenuButton.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Player/WeekAreas/PlayerWeekArea.cs" />
     <Compile Include="Assets/Scripts/Control/DialogueHandler/IDialogueHandler.cs" />
@@ -226,6 +230,7 @@
     <Compile Include="Assets/Scripts/Boundary/UI/GameMenu/Status/TalentItemButton.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Chase/EnemyChaseDirectToPlayerUntilWallSO.cs" />
     <Compile Include="Assets/Scripts/Data/Database/Sources/Consumables/ConsumableDatabase.cs" />
+    <Compile Include="Assets/Scripts/Boundary/Camera/BackgroundManager.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Projectile/ProjectileType.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/Shop/ShopPanelUI.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/PlayerStatus/PlayerStatusPanelUI.cs" />
@@ -248,6 +253,7 @@
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets/TextMesh Pro/Shaders/SDFFunctions.hlsl" />
+    <None Include="Assets/Graphics/Player/pigiama/player_pigiama.json" />
     <None Include="Assets/InkDialogues/main.json" />
     <None Include="Assets/Resources/GameDataImport/import_config.json" />
     <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />

@@ -8,6 +8,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.MeleeAttack
     {
         [SerializeField] private float cooldownDuration = 2f;
         [SerializeField] private float cooldownDurationPhase2 = 1.5f;
+        [SerializeField] private string animationName;
 
         private float _cooldownTimer;
         
@@ -15,9 +16,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.MeleeAttack
         {
             base.DoEnterLogic();
 
-            if (Enemy.Animator)
+            if (Enemy.Animator && !string.IsNullOrEmpty(animationName))
             {
-                Enemy.Animator.Play("cooldown");    
+                Enemy.Animator.Play(animationName);    
             }
         }
 

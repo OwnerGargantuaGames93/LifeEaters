@@ -1,4 +1,3 @@
-using Boundary.GamePlay.Enemy.Base;
 using UnityEngine;
 
 namespace Boundary.GamePlay.Enemy.Behaviors.Dormant

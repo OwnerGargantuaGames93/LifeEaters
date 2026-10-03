@@ -1,4 +1,5 @@
 using System.Collections;
+using Boundary.Player;
 using Boundary.UI;
 using Boundary.UI.GameMenu;
 using Boundary.UI.StatueMenu;
@@ -101,20 +102,22 @@ public class GameContext: MonoBehaviour
 
     private void SubscribeToEvents()
     {
-        EventBus.Subscribe<EGameOver>(OnGameOver);
+        EventBus.Subscribe<EGameOverSequenceFinished>(OnGameOverSequenceFinished);
     }
-    
+
     private void UnsubscribeFromEvents()
     {
-        EventBus.Unsubscribe<EGameOver>(OnGameOver);
+        EventBus.Unsubscribe<EGameOverSequenceFinished>(OnGameOverSequenceFinished);
     }
 
     #region Event Handlers
 
-    private static void OnGameOver(EGameOver gameOver)
+    // Fired only after PlayerController's death visual sequence finishes (bounce, fall, offscreen) -
+    // quitting immediately on EGameOver would cut the animation off mid-play.
+    private static void OnGameOverSequenceFinished(EGameOverSequenceFinished e)
     {
         // DEBUG: Quit execution
-        Debug.Log("Game Over received in GameContext. Quitting application.");
+        Debug.Log("Game Over sequence finished in GameContext. Quitting application.");
         Application.Quit();
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;

@@ -10,6 +10,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
         [SerializeField] private float phase2ChaseSpeed = 20f;
         [SerializeField] private float stunnedDuration = 1.0f;
         [SerializeField] private bool stunOnAttack = true;
+        [SerializeField] private string chaseAnimationName = "chase";
+        [SerializeField] private string stunnedAnimationName = "stunned";
         
         private float _stunnedTimer;
         
@@ -25,7 +27,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
             
             if (Enemy.Animator)
             {
-                Enemy.Animator.Play("walk");
+                Enemy.Animator.Play(chaseAnimationName);
             }
         }
 
@@ -54,7 +56,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
                         if (Enemy.Animator)
                         {
                             // Add stunned animation
-                            Enemy.Animator.Play("idle");
+                            Enemy.Animator.Play(stunnedAnimationName);
                         }
                     }
                     break;
