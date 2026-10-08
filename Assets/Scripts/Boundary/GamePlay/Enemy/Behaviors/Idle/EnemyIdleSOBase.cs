@@ -12,6 +12,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Idle
         [SerializeField] private bool disableAggroCheck;
         [SerializeField] private bool disableRangedAttackRangeCheck;
 
+        protected bool DisableAggroCheck => disableAggroCheck;
+
         public void Initialize(GameObject gameObject, BaseEnemy enemy) {
             Enemy = enemy;
             Transform = gameObject.transform;

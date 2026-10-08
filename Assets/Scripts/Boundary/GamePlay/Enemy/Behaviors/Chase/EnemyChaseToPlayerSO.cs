@@ -7,7 +7,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase {
     {
         [SerializeField] private float chaseSpeed = 3f;
         [SerializeField] private float chaseContinuationTime;
-        
+        [SerializeField] private string chaseAnimationName = "chase";
+
         private float _chaseContinuationTimer;
 
         private ChaseStatus _chaseStatus = ChaseStatus.ReadyToChase;
@@ -18,9 +19,9 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase {
 
             _chaseStatus = ChaseStatus.Chasing;
 
-            if (Enemy.Animator)
+            if (Enemy.Animator && !string.IsNullOrEmpty(chaseAnimationName))
             {
-                Enemy.Animator.Play("walk");
+                Enemy.Animator.Play(chaseAnimationName);
             }
         }
 

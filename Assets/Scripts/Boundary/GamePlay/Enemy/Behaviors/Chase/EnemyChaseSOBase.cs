@@ -28,6 +28,12 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
         public virtual void DoExitLogic() {
             ResetValues();
             
+            // Stop immediately the enemy when exiting the chase, preventing it from sliding into the next state
+            if (!Enemy.isKnockedBack)
+            {
+                Enemy.Rb.linearVelocity = new Vector2(0f, Enemy.Rb.linearVelocity.y);
+            }
+
             if (controlContactAttackAreaActivation && Enemy.ContactAttackArea != null)
             {
                 Enemy.ContactAttackArea.SetActive(false);
