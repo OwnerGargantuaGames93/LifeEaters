@@ -15,7 +15,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
     /// If phase2Pattern is assigned, it will be used when the enemy is in Phase2 or higher.
     ///
     /// Workflow:
-    ///   EnterState  → optional "attack" animation, then call pattern.Execute()
+    ///   EnterState  → optional attack animation (+ optional delay), then call pattern.Execute()
     ///   ExitState   → transition to CooldownState
     ///   OnReceiveDamage → interrupt and go to IdleState
     /// </summary>
@@ -29,8 +29,13 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
         [Header("Pattern — Phase 2+ (optional, leave empty to reuse Phase 1 pattern)")]
         [SerializeField] private RangedAttackPatternSOBase phase2Pattern;
 
-        [Header("Optional — if true, waits for the 'attack' animation to finish before firing")]
+        [Header("Optional — if true, waits for the attack animation to finish before firing")]
         [SerializeField] private bool waitForAnimation = false;
+        
+        [SerializeField] private string attackAnimationName = "attack";
+
+        [Tooltip("Seconds to wait after the attack animation ends before releasing the projectile")]
+        [SerializeField, Min(0f)] private float delayAfterAnimation = 0f;
         
         [Header("Optional — if true, will be a cooldown state after firing, otherwise will go to IdleState")]
         [SerializeField] private bool goToCooldownAfterFiring = true;
@@ -40,6 +45,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
 
         private bool _hasFired;
         private bool _waitingForAnim;
+        private bool _animFinished;
+        private float _delayTimer;
 
         /// <summary>Returns the correct pattern based on the enemy's current phase.</summary>
         private RangedAttackPatternSOBase ActivePattern
@@ -59,12 +66,14 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
             base.DoEnterLogic();
             _hasFired       = false;
             _waitingForAnim = false;
+            _animFinished   = false;
+            _delayTimer     = 0f;
 
             FaceTowardsPlayer();
 
             if (waitForAnimation && Enemy.Animator != null)
             {
-                Enemy.Animator.Play("attack");
+                Enemy.Animator.Play(attackAnimationName);
                 _waitingForAnim = true;
             }
             else
@@ -82,9 +91,17 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
             FaceTowardsPlayer();
 
             // Wait until the attack animation reaches its end
-            if (Enemy.Animator != null &&
-                Enemy.Animator.GetCurrentAnimatorStateInfo(0).IsName("attack") &&
-                Enemy.Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+            if (!_animFinished)
+            {
+                if (Enemy.Animator == null) return;
+                var stateInfo = Enemy.Animator.GetCurrentAnimatorStateInfo(0);
+                if (!stateInfo.IsName(attackAnimationName) || stateInfo.normalizedTime < 1f) return;
+                _animFinished = true;
+            }
+
+            // Then wait the configured delay before releasing the projectile
+            _delayTimer += Time.deltaTime;
+            if (_delayTimer >= delayAfterAnimation)
             {
                 Fire();
             }
@@ -107,6 +124,8 @@ namespace Boundary.GamePlay.Enemy.Behaviors.RangedAttack
             base.ResetValues();
             _hasFired       = false;
             _waitingForAnim = false;
+            _animFinished   = false;
+            _delayTimer     = 0f;
         }
 
         // ─────────────────────────────────────────────────────────────────────

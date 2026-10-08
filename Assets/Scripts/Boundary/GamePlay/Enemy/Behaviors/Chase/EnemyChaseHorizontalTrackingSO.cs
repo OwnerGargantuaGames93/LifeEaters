@@ -9,14 +9,15 @@ namespace Boundary.Enemy.Behaviors.Chase.Shooting
     {
         [SerializeField] private float horizontalChaseRange = 2f;
         [SerializeField] private float chaseSpeed = 1.5f;
+        [SerializeField] private string chaseAnimationName = "walk";
     
         public override void DoEnterLogic()
         {
             base.DoEnterLogic();
             
-            if (Enemy.Animator)
+            if (Enemy.Animator && !string.IsNullOrEmpty(chaseAnimationName))
             {
-                Enemy.Animator.Play("walk");
+                Enemy.Animator.Play(chaseAnimationName);
             }
         }
 
