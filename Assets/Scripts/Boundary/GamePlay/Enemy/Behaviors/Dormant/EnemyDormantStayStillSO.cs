@@ -6,13 +6,15 @@ namespace Boundary.Enemy.Behaviors.Dormant
     [CreateAssetMenu(fileName = "Dormant Stay Still", menuName = "Enemies/Behaviors/Dormant/Enemy Dormant Stay Still")]
     public class EnemyDormantStayStillSO: EnemyDormantSOBase
     {
+        [SerializeField] private string dormantAnimationName = "idle";
+        
         public override void DoEnterLogic()
         {
             base.DoEnterLogic();
 
-            if (Enemy.Animator)
+            if (Enemy.Animator && !string.IsNullOrEmpty(dormantAnimationName))
             {
-                Enemy.Animator.Play("idle");
+                Enemy.Animator.Play(dormantAnimationName);
             }
         }
         
