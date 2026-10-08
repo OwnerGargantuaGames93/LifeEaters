@@ -16,6 +16,7 @@
 | **Stato** | Prototipo (Zona 1 e Zona 2 completate senza grafica definitiva) |
 | **Lingua codebase** | C# |
 | **Sistema dialoghi** | Ink (runtime + variabili sincronizzate) |
+| **Audio** | FMOD Studio (pianificato) — vedi `AUDIO.md` |
 | **File di save** | JSON in `Application.persistentDataPath`, fino a 6 slot |
 
 ---
@@ -448,9 +449,9 @@ List<LifeDrop> PossibleLifeDrops;  // { LifeId lifeId, float dropChance }
 | SO | MenuName Unity | Comportamento |
 |---|---|---|
 | `EnemyIdleStayStill` | Behaviors/Idle/Stay Still | Fermo, reagisce ad aggro/range |
-| `EnemyIdleLookLeftAndRightSO` | Behaviors/Idle/Look Left And Right | Gira a intervalli |
+| `EnemyIdleLookLeftAndRightSO` | Behaviors/Idle/Look Left And Right | Gira a intervalli. Con `reactBeforeChase` all'aggro resta fermo per `aggroReactionDuration` suonando `aggroReactionAnimationName` (default `agroed`), poi passa al Chase |
 | `EnemyIdleCasualPatrollingSO` | Behaviors/Idle/Causal Patrolling | Pattuglia con pause random |
-| `EnemyChaseToPlayerSO` | Behaviors/Chase/Chase Direct To Player | Insegue il player, perde aggro → Idle. `chaseContinuationTime` configura quanto inseguire dopo perdita agro |
+| `EnemyChaseToPlayerSO` | Behaviors/Chase/Chase Direct To Player | Insegue il player, perde aggro → Idle. `chaseContinuationTime` configura quanto inseguire dopo perdita agro. Suona `chaseAnimationName` (default `chase`) |
 | `EnemyChaseDirectToPlayerUntilWallSO` | Behaviors/Chase/Chase Direct To Player Until Wall | Carica fino al muro → stun timer → Idle. Base per boss. `stunOnAttack` configura se si stordisce quando colpito |
 | `EnemyChaseDirectToPlayerUntilWallWithStunDebuffSO` | Behaviors/Chase/..(Stunned Debuff) | Come sopra ma applica debuff JumpAttackDefense/ThrowAttackDefense durante lo stun |
 | `EnemyChaseHorizontalTrackingSO` | Behaviors/Chase/Chase Horizontally Tracking | Si avvicina orizzontalmente e triggera Ranged quando allineato. Per nemici volanti/sparatori |
