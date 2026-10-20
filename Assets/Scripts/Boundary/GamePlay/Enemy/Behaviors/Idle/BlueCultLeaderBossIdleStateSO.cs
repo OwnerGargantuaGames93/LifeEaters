@@ -13,8 +13,16 @@ namespace Boundary.Enemy.Behaviors.Idle
         [SerializeField] private float phase2DecisionTimeMin = 0.7f;
         [SerializeField] private float phase2DecisionTimeMax = 1.2f;
 
+        [Header("Chase Reaction")]
+        [Tooltip("Before starting the chase, the boss stays still playing this animation for chaseReactionDuration seconds")]
+        [SerializeField] private string chaseReactionAnimationName = "agroed_chase";
+        [SerializeField, Min(0f)] private float chaseReactionDuration = 0.5f;
+
         private float _decisionTime;
         private float _decisionTimer;
+
+        private bool _isReactingBeforeChase;
+        private float _chaseReactionTimer;
         
         private int _lastActionConsecutiveCount;
         private bool _lastActionWasChase;
@@ -23,6 +31,7 @@ namespace Boundary.Enemy.Behaviors.Idle
         {
             base.DoEnterLogic();
             _decisionTimer = 0f;
+            ResetChaseReaction();
             
             // Choose a random number between phase 1 min and max
             _decisionTime = Enemy.CurrentPhase() switch
@@ -39,11 +48,24 @@ namespace Boundary.Enemy.Behaviors.Idle
             base.DoExitLogic();
             _decisionTime = 1f;
             _decisionTimer = 0f;
+            ResetChaseReaction();
         }
 
         public override void DoFrameUpdateLogic()
         {
             base.DoFrameUpdateLogic();
+
+            // Reazione prima del chase: resta fermo con l'animazione, poi parte il chase
+            if (_isReactingBeforeChase)
+            {
+                _chaseReactionTimer += Time.deltaTime;
+                if (_chaseReactionTimer >= chaseReactionDuration)
+                {
+                    Enemy.StateMachine.ChangeState(Enemy.ChasingState);
+                }
+                return;
+            }
+
             if (_decisionTimer < _decisionTime)
             {
                 _decisionTimer += Time.deltaTime;
@@ -86,9 +108,26 @@ namespace Boundary.Enemy.Behaviors.Idle
             }
 
             if (wantsChase)
-                Enemy.StateMachine.ChangeState(Enemy.ChasingState);
+                StartChaseReaction();
             else
                 Enemy.StateMachine.ChangeState(Enemy.RangedAttackState);
+        }
+
+        private void StartChaseReaction()
+        {
+            _isReactingBeforeChase = true;
+            _chaseReactionTimer = 0f;
+
+            if (Enemy.Animator && !string.IsNullOrEmpty(chaseReactionAnimationName))
+            {
+                Enemy.Animator.Play(chaseReactionAnimationName);
+            }
+        }
+
+        private void ResetChaseReaction()
+        {
+            _isReactingBeforeChase = false;
+            _chaseReactionTimer = 0f;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
     {
         [SerializeField] private float phase1ChaseSpeed = 16f;
         [SerializeField] private float phase2ChaseSpeed = 20f;
+        [Tooltip("Seconds the enemy stays stunned after hitting a wall (plays stunnedAnimationName)")]
         [SerializeField] private float stunnedDuration = 1.0f;
         [SerializeField] private bool stunOnAttack = true;
         [SerializeField] private string chaseAnimationName = "chase";
@@ -51,13 +52,7 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
                     // Check for wall collision
                     if (Enemy.TouchingDirections.IsOnWall)
                     {
-                        _chaseStatus = ChaseStatus.Stunned;
-                        OnStunStateEnter();
-                        if (Enemy.Animator)
-                        {
-                            // Add stunned animation
-                            Enemy.Animator.Play(stunnedAnimationName);
-                        }
+                        EnterStun();
                     }
                     break;
                 case ChaseStatus.Stunned:
@@ -109,9 +104,20 @@ namespace Boundary.GamePlay.Enemy.Behaviors.Chase
         {
             base.OnReceiveDamage();
 
-            if (stunOnAttack)
+            if (stunOnAttack && _chaseStatus != ChaseStatus.Stunned)
             {
-                _chaseStatus = ChaseStatus.Stunned;
+                EnterStun();
+            }
+        }
+
+        private void EnterStun()
+        {
+            _chaseStatus = ChaseStatus.Stunned;
+            OnStunStateEnter();
+
+            if (Enemy.Animator && !string.IsNullOrEmpty(stunnedAnimationName))
+            {
+                Enemy.Animator.Play(stunnedAnimationName);
             }
         }
         

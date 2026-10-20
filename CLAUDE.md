@@ -450,9 +450,9 @@ List<LifeDrop> PossibleLifeDrops;  // { LifeId lifeId, float dropChance }
 |---|---|---|
 | `EnemyIdleStayStill` | Behaviors/Idle/Stay Still | Fermo, reagisce ad aggro/range |
 | `EnemyIdleLookLeftAndRightSO` | Behaviors/Idle/Look Left And Right | Gira a intervalli. Con `reactBeforeChase` all'aggro resta fermo per `aggroReactionDuration` suonando `aggroReactionAnimationName` (default `agroed`), poi passa al Chase |
-| `EnemyIdleCasualPatrollingSO` | Behaviors/Idle/Causal Patrolling | Pattuglia con pause random |
+| `EnemyIdleCasualPatrollingSO` | Behaviors/Idle/Causal Patrolling | Pattuglia con pause random. Con `hopBeforeChase` all'aggro fa un saltino (`hopIntensity`, animazione opzionale `hopAnimationName`) e passa al Chase all'atterraggio (timeout `maxHopDuration`) |
 | `EnemyChaseToPlayerSO` | Behaviors/Chase/Chase Direct To Player | Insegue il player, perde aggro → Idle. `chaseContinuationTime` configura quanto inseguire dopo perdita agro. Suona `chaseAnimationName` (default `chase`) |
-| `EnemyChaseDirectToPlayerUntilWallSO` | Behaviors/Chase/Chase Direct To Player Until Wall | Carica fino al muro → stun timer → Idle. Base per boss. `stunOnAttack` configura se si stordisce quando colpito |
+| `EnemyChaseDirectToPlayerUntilWallSO` | Behaviors/Chase/Chase Direct To Player Until Wall | Carica fino al muro → stun (`stunnedDuration`, animazione `stunnedAnimationName`, default `stunned`) → Idle. Base per boss. `stunOnAttack` configura se si stordisce quando colpito |
 | `EnemyChaseDirectToPlayerUntilWallWithStunDebuffSO` | Behaviors/Chase/..(Stunned Debuff) | Come sopra ma applica debuff JumpAttackDefense/ThrowAttackDefense durante lo stun |
 | `EnemyChaseHorizontalTrackingSO` | Behaviors/Chase/Chase Horizontally Tracking | Si avvicina orizzontalmente e triggera Ranged quando allineato. Per nemici volanti/sparatori |
 | `AnimationBasedMeleeAttackSO` | Behaviors/Melee Attack/Animation Based | Animazione attacco → cooldown o chase |
