@@ -12,7 +12,7 @@ namespace Data.Entities.Statue
         // Scene that contains the statue
         public int Scene { get; }
         
-        // Position of the statue in the scene (will be used to teleport / respawn the player)
+        // Spawn point of the statue in the scene (will be used to teleport / respawn the player)
         public Vector3 Position { get; }
 
         // Name of the statue

@@ -127,6 +127,7 @@
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Pit/Objects/Wool/WoolObject.cs" />
     <Compile Include="Assets/Scripts/Data/Database/Sources/Equipments/EquipmentDatabase.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Idle/BlueCultLeaderBossIdleStateSO.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/GameplayEvents/ActiveOnGameplayEvents.cs" />
     <Compile Include="Assets/Scripts/Control/Player/UseCase/ULevelUp.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Dormant/EnemyDormantStayStillSO.cs" />
     <Compile Include="Assets/Scripts/Control/GameData/IGameDataModel.cs" />
@@ -160,10 +161,12 @@
     <Compile Include="Assets/Scripts/Boundary/Utils/TouchingDirections.cs" />
     <Compile Include="Assets/Scripts/Boundary/Camera/CameraShake.cs" />
     <Compile Include="Assets/InputActions/Controls.cs" />
+    <Compile Include="Assets/Scripts/Utils/EditorUtils/ShowWorldPosition.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Player/PlayerAnimator.cs" />
     <Compile Include="Assets/Scripts/Data/Entities/Loot/LootData.cs" />
     <Compile Include="Assets/Scripts/Data/Database/Sources/Talents/TalentDatabase.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Cooldown/EnemyCooldownSOBase.cs" />
+    <Compile Include="Assets/Scripts/Boundary/GamePlay/Lights/Light2DColorOnGameplayEvent.cs" />
     <Compile Include="Assets/Scripts/Boundary/UI/GameMenu/GameMenuPanelUI.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Enemy/Behaviors/Dormant/EnemyDormantSleepInSpecificPositionSO.cs" />
     <Compile Include="Assets/Scripts/Boundary/GamePlay/Pit/Pit.cs" />

@@ -15,6 +15,12 @@ namespace Boundary.Interactable
         // Name of the statue, configurable in the Unity Editor
         [SerializeField] private string statueName;
         
+        // Point where the player respawns / is teleported (load game, return to statue).
+        // If not assigned, falls back to a child named "SpawnPoint", then to the statue's own transform.
+        [SerializeField] private Transform spawnPoint;
+        
+        private const string SpawnPointChildName = "SpawnPoint";
+        
         // Data for the statue, including its name, position, and unique ID
         // This will store in gameplay data when the statue will be activated
         private StatueData _data;
@@ -29,6 +35,17 @@ namespace Boundary.Interactable
             CommonAwake();
             
             _eventBus = GameContext.Instance.EventBus;
+
+            if (spawnPoint == null)
+            {
+                spawnPoint = transform.Find(SpawnPointChildName);
+            }
+
+            if (spawnPoint == null)
+            {
+                Debug.LogWarning($"[Statue] No spawn point on '{statueName}', using the statue position.");
+                spawnPoint = transform;
+            }
         }
 
         private void Start()
@@ -36,7 +53,7 @@ namespace Boundary.Interactable
             _data = new StatueData(
                 Id,
                 UnityEngine.SceneManagement.SceneManager.GetActiveScene().handle,
-                gameObject.transform.position,
+                spawnPoint.position,
                 statueName
             );
         }
