@@ -868,7 +868,7 @@ namespace Boundary.Player
             // it so the camera cuts instantly, same frame as the teleport.
             WarpCameraToPlayer(transform.position - previousPosition);
 
-            _eventBus.Publish(new EPlayerTeleported());
+            _eventBus.Publish(new EPlayerTeleported(transform.position));
             StartCoroutine(RespawnCooldown());
         }
 
@@ -1228,7 +1228,15 @@ namespace Boundary.Player
     public struct EPlayerDeathSequenceEnded {}
     public struct EPlayerDied {}
     public struct EPlayerRespawned {}
-    public struct EPlayerTeleported {}
+    public struct EPlayerTeleported
+    {
+        public readonly Vector3 Position;
+
+        public EPlayerTeleported(Vector3 position)
+        {
+            Position = position;
+        }
+    }
 
     #endregion
 }

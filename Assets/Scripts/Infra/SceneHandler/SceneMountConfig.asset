@@ -21,7 +21,7 @@ MonoBehaviour:
     requiredScenes:
     - -1.0_roahr_sect_western_outpost
     - -1.1_sewers
-    backgroundId: 
+    backgroundId: river_side
   - scene: -1.1_sewers
     requiredScenes:
     - -1.0_roahr_sect_western_outpost
@@ -44,3 +44,7 @@ MonoBehaviour:
     - 1.3_clay_crusher
     - -1.0_roahr_sect_western_outpost
     backgroundId: parent_house
+  - scene: -1.1_sewers
+    requiredScenes:
+    - -1.0_roahr_sect_western_outpost
+    backgroundId: river_side
